@@ -1,4 +1,5 @@
 import { MagnifyingGlass } from "@/app/components/icons/MagnifyingGlass"
+import Link from "next/link"
 
 export const Header = () => {
   return (
@@ -15,9 +16,12 @@ export const Header = () => {
           />
           <MagnifyingGlass className="absolute top-1/2 -translate-y-1/2 left-3" />
         </div>
-        <button className="whitespace-nowrap active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-primary rounded-full flex items-center justify-center py-3 px-2 w-[223px]">
+        <Link
+          href="/editar-evento"
+          className="whitespace-nowrap cursor-pointer active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-primary rounded-full flex items-center justify-center py-3 px-2 w-[223px]"
+        >
           Criar evento
-        </button>
+        </Link>
       </div>
     </>
   )

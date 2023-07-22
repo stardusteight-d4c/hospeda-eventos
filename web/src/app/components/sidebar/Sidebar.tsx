@@ -6,8 +6,8 @@ import { Tag } from "@/app/components/icons/Tag"
 
 export const Sidebar = () => {
   return (
-    <aside className="w-14 h-screen absolute top-0 pt-24 z-0 bg-layout-spotlight">
-      <nav className="py-6 px-3">
+    <aside className="w-14 h-screen fixed top-0 pt-24 z-0 bg-layout-spotlight">
+      <nav className="py-6 px-3 h-full w-full relative">
         <ul className="flex flex-col items-center gap-y-8">
           <li className="rounded-[10px] p-1 transition-all ease-in-out cursor-pointer hover:bg-layout-body">
             <House />

@@ -16,9 +16,12 @@ module.exports = {
         "layout-spotlight": "#F5F7F8",
         "interactive-primary": "#2C68F4",
         "interactive-secundary": "#e3e3e6",
+        "interactive-destructive": "#FF4E3A",
         "input-border": "#cacad0",
         "success-dark": "#498D12",
         "success-light": "#C2ED79",
+        "error-dark": "#8D3012",
+        "error-light": "#ED9C79",
       },
       fontFamily: {
         roboto: ["var(--font-roboto)"],
