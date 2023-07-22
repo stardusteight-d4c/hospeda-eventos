@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="text-content-title leading-[37.5px] text-[32px] font-bold">
             Encontre sua Hospedagem!
           </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6 w-full mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full mt-6">
             {homePageInfo.map((host, index) => (
               <Card key={index} {...host} />
             ))}

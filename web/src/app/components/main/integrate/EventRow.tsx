@@ -9,7 +9,7 @@ export const EventRow = () => {
         <img
           src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/46843029.jpg?k=7a19f44dbe450085ce81de3858e9ff11c96b9b08def0814d0a5fc78350fb4335&o=&hp=1"
           alt=""
-          className="w-[106px] h-[80px] rounded-xl"
+          className="w-[106px] h-[80px] hidden md:block rounded-xl"
         />
         <div className="flex flex-col mt-[17px] pl-4">
           <h2 className="text-content-title font-bold">Nome do evento</h2>
