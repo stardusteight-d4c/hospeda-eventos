@@ -1,5 +1,4 @@
 import { Header } from "./components/header/Header"
-import { Main } from "./components/main/Main"
 import { Sidebar } from "./components/sidebar/Sidebar"
 
 export default function Home() {
@@ -8,7 +7,6 @@ export default function Home() {
       <Header />
       <div className="flex max-w-7xl w-full mx-auto">
         <Sidebar />
-        <Main />
       </div>
     </div>
   )

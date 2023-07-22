@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export const Header = () => {
   return (
-    <header className="bg-layout-body h-24 w-screen fixed top-0 z-20">
+    <header className="bg-layout-body h-24 w-screen relative z-20">
       <div className="py-7 px-8 max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/">
         <h1 className="text-content-alt-brand cursor-pointer flex items-center gap-x-4">
