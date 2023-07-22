@@ -2,48 +2,70 @@ import React from "react"
 import { MapPin } from "../icons/MapPin"
 import Link from "next/link"
 
-interface Props {
+export interface CardProps {
   name: string
   coverImage: string
-  minPrice: number
+  minPrice?: number
   location: string
   link: string
+  soldOff?: boolean
 }
 
-export const Card = ({ name, coverImage, minPrice, location, link }: Props) => {
+export const Card = ({
+  name,
+  coverImage,
+  minPrice,
+  location,
+  link,
+  soldOff = false,
+}: CardProps) => {
   return (
-    <div className="col-span-1 border transition-all duration-300 ease-in-out border-input-border overflow-hidden relative h-[375px] rounded-xl shadow-sm shadow-black/20 w-fit">
+    <div className="col-span-1 relative border transition-all duration-300 ease-in-out border-input-border overflow-hidden h-[355px] rounded-xl shadow-sm shadow-black/20 w-fit">
       <img
-        src="https://hospedaeventos.com.br/wp-content/uploads/2023/06/NacionalInnSorocaba_Hotel01-400x300.jpg"
-        alt=""
-        className="bg-cover"
+        src={coverImage}
+        alt={name}
+        className={`${soldOff ? "brightness-50" : "brightness-100"}  bg-cover select-none pointer-events-none`}
       />
-      <div className="p-2 w-full relative">
+      <div className="p-2 w-full ">
         <h2
           title="Nacional assasd Inn Sorocaba assssss asssssss adsssssss"
-          className="text-lg flex items-center justify-center h-full text-center cursor-default font-semibold leading-snug"
+          className="text-lg border-b h-[54px] border-dashed border-b-input-border pb-1 mb-1 flex items-center justify-center text-center cursor-default font-semibold leading-snug"
         >
-          <p className="line-clamp-2">
-            Nacional Inn Sorocaba Nacional Inn Sorocaba Nacional Inn Sorocaba
-            Nacional Inn Sorocaba aaaaaaaaaaaaaaaaa
-          </p>
+          <p className="line-clamp-2">{name}</p>
         </h2>
-        <div className="absolute top-full w-full inset-x-0">
-          <div className="flex flex-col items-center justify-center border-t border-dashed border-t-input-border py-1 my-1">
-            <p className="text-sm text-success-dark font-medium py-1">
-              A partir de: R$211
-            </p>
+        <div className="absolute bottom-2 w-full inset-x-0">
+          <div className="flex flex-col items-center justify-center">
+            {minPrice ? (
+              <p className="text-sm text-success-dark font-medium py-1">
+                A partir de: R${minPrice}
+              </p>
+            ) : (
+              <p className="text-sm text-content-base font-medium py-1">
+                Não informado
+              </p>
+            )}
             <span className="flex items-center gap-x-1">
               <MapPin />
-              <p className="text-content-base text-sm">Sorocaba | SP</p>
+              <p className="text-content-base text-sm">{location}</p>
             </span>
           </div>
-          <Link
-            href="/editar-evento"
-            className="whitespace-nowrap tracking-wide mx-auto cursor-pointer active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-primary rounded-full flex items-center justify-center py-2 px-4 w-fit"
-          >
-            Confira
-          </Link>
+          {soldOff ? (
+            <a
+              href={link}
+              target="_blank"
+              className="whitespace-nowrap tracking-wide mx-auto cursor-pointer active:scale-100 hover:scale-105 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-destructive rounded-full flex items-center justify-center py-2 px-5 mt-2 w-fit"
+            >
+              Esgotado
+            </a>
+          ) : (
+            <a
+              href={link}
+              target="_blank"
+              className="whitespace-nowrap tracking-wide mx-auto cursor-pointer active:scale-100 hover:scale-105 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-primary rounded-full flex items-center justify-center py-2 px-5 mt-2 w-fit"
+            >
+              Confira
+            </a>
+          )}
         </div>
       </div>
     </div>
