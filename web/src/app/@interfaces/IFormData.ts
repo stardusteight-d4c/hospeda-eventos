@@ -33,3 +33,17 @@ interface IFormData {
   startDate: Date
   startTime: string
 }
+
+interface InputValues {
+  eventName: string
+  cep: string
+  number: string
+  address: string
+  complement: string
+  description: string
+  neighborhood: string
+  city: string
+  state: string
+  startDate: Date
+  startTime: string
+}

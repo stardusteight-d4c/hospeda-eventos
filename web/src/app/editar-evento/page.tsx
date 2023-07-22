@@ -1,4 +1,5 @@
-import React from "react"
+"use client"
+
 import { Hospeda } from "@/app/components/icons/Hospeda"
 import { CaretLeft } from "../components/icons/CaretLeft"
 import Link from "next/link"
@@ -9,12 +10,37 @@ import { ListBullets } from "../components/icons/ListBullets"
 import { ListNumbers } from "../components/icons/ListNumbers"
 import { Paperclip } from "../components/icons/Paperclip"
 import { TrashSimple } from "../components/icons/TrashSimple"
-import { Input } from "../components/globals/Input"
+import { InputForm } from "./integrate/InputForm"
 import { Uploader } from "./integrate/Uploader"
+import { useState } from "react"
+import { makeInputData } from "./integrate/data"
+import { useFormDataContext } from "../@context/FormContextProvider"
+import { log } from "console"
 
 interface Props {}
 
 export default function EditEventPage(props: Props) {
+  const { setFormData, formData } = useFormDataContext()
+  const [inputValues, setInputValues] = useState<InputValues>({
+    eventName: "",
+    cep: "",
+    number: "",
+    address: "",
+    complement: "",
+    description: "",
+    neighborhood: "",
+    city: "",
+    state: "",
+    startDate: new Date(),
+    startTime: "",
+  })
+
+  function handleSubmit() {
+    console.log(formData)
+  }
+
+  const inputData = makeInputData(inputValues, setInputValues)
+
   return (
     <div className="max-w-[100vw] w-full overflow-x-hidden min-h-screen pb-12 bg-layout-body">
       <div className="max-w-7xl mx-auto">
@@ -41,11 +67,7 @@ export default function EditEventPage(props: Props) {
           </h2>
 
           <div className="mt-[46px] ">
-            <Input
-              label="Nome do evento"
-              id="nomedoevento"
-              placeholder="Insira o nome do evento"
-            />
+            <InputForm {...inputData.eventName} />
           </div>
           <div>
             <Uploader />
@@ -95,6 +117,14 @@ export default function EditEventPage(props: Props) {
                 </ul>
               </div>
               <textarea
+                id="description"
+                onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+                  const { id, value } = event.target
+                  setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [id]: value,
+                  }))
+                }}
                 placeholder="Placeholder"
                 spellCheck="false"
                 className="p-3 w-full text-content-title min-h-[108px] max-h-[108px] resize-none outline-none border border-input-border rounded-b-xl"
@@ -106,38 +136,22 @@ export default function EditEventPage(props: Props) {
             Local do evento
           </h3>
           <div className="flex items-center w-full gap-x-4 mt-[46px] mb-4">
-            <Input label="CEP" id="cep" placeholder="Ex.: 00000-000" />
-            <Input
-              label="Número"
-              id="number"
-              placeholder="Ex.: 170"
-            />
+            <InputForm {...inputData.cep} />
+            <InputForm {...inputData.number} />
           </div>
-          <Input
-            label="Endereço"
-            id="address"
-            placeholder="Ex.: Rua Pedro Neves, 170 - Bairro Lima, Santos - SP"
-          />
+          <InputForm {...inputData.address} />
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div className="col-span-1">
-              <Input
-                label="Complemento"
-                id="complement"
-                placeholder="Ex.: apt.42"
-              />
+              <InputForm {...inputData.complement} />
             </div>
             <div className="col-span-1">
-              <Input
-                label="Bairro"
-                id="neighborhood"
-                placeholder="Ex.: Bairro Lima"
-              />
+              <InputForm {...inputData.neighborhood} />
             </div>
             <div className="col-span-1">
-              <Input label="Cidade" id="city" placeholder="Ex.: Santos" />
+              <InputForm {...inputData.city} />
             </div>
             <div className="col-span-1">
-              <Input label="Estado" id="state" placeholder="Ex.: São Paulo" />
+              <InputForm {...inputData.state} />
             </div>
           </div>
           <div className="w-full h-0 border-t border-t-layout-body my-8" />
@@ -145,21 +159,14 @@ export default function EditEventPage(props: Props) {
             Data e horário
           </h3>
           <div className="flex items-center gap-x-4">
-            <Input
-              label="Data de início"
-              id="date"
-              type="date"
-              placeholder="Ex.: São Paulo"
-            />
-            <Input
-              label="Horário de início"
-              id="time"
-              type="time"
-              placeholder="Ex.: São Paulo"
-            />
+            <InputForm {...inputData.startDate} />
+            <InputForm {...inputData.startTime} />
           </div>
           <div className="w-full flex justify-end">
-            <button className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto">
+            <button
+              onClick={handleSubmit}
+              className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto"
+            >
               Cadastrar
             </button>
           </div>
