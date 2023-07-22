@@ -10,12 +10,13 @@ import { ListNumbers } from "../components/icons/ListNumbers"
 import { Paperclip } from "../components/icons/Paperclip"
 import { TrashSimple } from "../components/icons/TrashSimple"
 import { Input } from "../components/globals/Input"
+import { Uploader } from "./integrate/Uploader"
 
 interface Props {}
 
 export default function EditEventPage(props: Props) {
   return (
-    <div className="w-screen min-h-screen pb-12 bg-layout-body">
+    <div className="max-w-[100vw] w-full overflow-x-hidden min-h-screen pb-12 bg-layout-body">
       <div className="max-w-7xl mx-auto">
         <div className="flex pt-24 items-center justify-between">
           <div>
@@ -34,7 +35,7 @@ export default function EditEventPage(props: Props) {
             <p className="leading-[18.75px] font-bold">Hospeda Eventos</p>
           </Link>
         </div>
-        <section className="w-full bg-white p-12 rounded-2xl mt-6">
+        <section className="w-full bg-white p-12 pb-[84px] rounded-2xl mt-6">
           <h2 className="text-2xl text-content-title font-bold">
             Informações do evento
           </h2>
@@ -45,6 +46,9 @@ export default function EditEventPage(props: Props) {
               id="nomedoevento"
               placeholder="Insira o nome do evento"
             />
+          </div>
+          <div>
+            <Uploader />
           </div>
           <div className="w-full mt-[18px] flex flex-col gap-y-2">
             <label htmlFor="" className="text-content-base">
@@ -105,9 +109,8 @@ export default function EditEventPage(props: Props) {
             <Input label="CEP" id="cep" placeholder="Ex.: 00000-000" />
             <Input
               label="Número"
-              id="tel"
-              type="tel"
-              placeholder="Ex.: (00) 0000-0000"
+              id="number"
+              placeholder="Ex.: 170"
             />
           </div>
           <Input

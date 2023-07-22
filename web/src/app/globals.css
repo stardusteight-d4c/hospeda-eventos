@@ -6,3 +6,17 @@ html,
 body {
   @apply antialiased scroll-smooth;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: #ECEEF0;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 50px;
+  background: #2C68F4;
+}
+
+

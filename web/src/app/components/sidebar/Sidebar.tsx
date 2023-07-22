@@ -30,7 +30,7 @@ export const Sidebar = () => {
             className={`${
               pathname === "/meus-eventos"
                 ? "bg-interactive-primary text-white"
-                : "hover:bg-layout-body"
+                : "hover:bg-layout-body text-content-placeholder"
             } rounded-[10px] p-1 transition-all ease-in-out cursor-pointer`}
           >
             <CalendarBlank />
