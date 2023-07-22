@@ -1,6 +1,4 @@
-import Link from "next/link"
 import { Header } from "./components/header/Header"
-import { MapPin } from "./components/icons/MapPin"
 import { Sidebar } from "./components/sidebar/Sidebar"
 import { Card } from "./components/home/Card"
 import { homePageInfo } from "./data"

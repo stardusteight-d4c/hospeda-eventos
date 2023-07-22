@@ -1,6 +1,5 @@
 import React from "react"
 import { MapPin } from "../icons/MapPin"
-import Link from "next/link"
 
 export interface CardProps {
   name: string
