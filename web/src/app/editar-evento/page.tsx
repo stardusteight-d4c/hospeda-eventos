@@ -44,8 +44,8 @@ export default function EditEventPage(props: Props) {
   return (
     <div className="max-w-[100vw] w-full overflow-x-hidden min-h-screen pb-12 bg-layout-body">
       <div className="max-w-7xl mx-auto">
-        <div className="flex pt-24 items-center justify-between">
-          <div>
+        <div className="pl-4 md:pl-0 grid grid-rows-2 w-full md:flex pt-24 items-center justify-between">
+          <div className="row-start-2 mt-4 md:mt-0">
             <h1 className="text-content-title flex items-center gap-x-4 leading-[37.5px] text-[32px] font-bold">
               <Link href="/meus-eventos" className="cursor-pointer">
                 <CaretLeft />
@@ -55,13 +55,13 @@ export default function EditEventPage(props: Props) {
           </div>
           <Link
             href="/"
-            className="text-content-alt-brand cursor-pointer flex items-center gap-x-4"
+            className="row-start-1 w-fit text-content-alt-brand cursor-pointer flex items-center gap-x-4"
           >
             <Hospeda className="w-7 h-7" />
             <p className="leading-[18.75px] font-bold">Hospeda Eventos</p>
           </Link>
         </div>
-        <section className="w-full bg-white p-12 pb-[84px] rounded-2xl mt-6">
+        <section className="w-full bg-white p-4 md:p-12 pb-[84px] rounded-2xl mt-6">
           <h2 className="text-2xl text-content-title font-bold">
             Informações do evento
           </h2>
@@ -135,9 +135,13 @@ export default function EditEventPage(props: Props) {
           <h3 className="text-content-title text-xl font-bold mb-5">
             Local do evento
           </h3>
-          <div className="flex items-center w-full gap-x-4 mt-[46px] mb-4">
-            <InputForm {...inputData.cep} />
-            <InputForm {...inputData.number} />
+          <div className="grid grid-cols-2 gap-x-4 w-full mt-[46px] mb-4">
+            <div className="col-span-1">
+              <InputForm {...inputData.cep} />
+            </div>
+            <div className="col-span-1">
+              <InputForm {...inputData.number} />
+            </div>
           </div>
           <InputForm {...inputData.address} />
           <div className="grid grid-cols-2 gap-4 mt-4">
