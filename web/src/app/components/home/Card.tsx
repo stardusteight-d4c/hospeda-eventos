@@ -9,6 +9,7 @@ export interface CardProps {
   location: string
   link: string
   soldOff?: boolean
+  styles: string
 }
 
 export const Card = ({
@@ -18,9 +19,10 @@ export const Card = ({
   location,
   link,
   soldOff = false,
+  styles
 }: CardProps) => {
   return (
-    <div className="col-span-1 relative border transition-all duration-300 ease-in-out border-input-border overflow-hidden h-[355px] rounded-xl shadow-sm shadow-black/20 w-fit">
+    <div className={`${styles} col-span-1 relative border mx-auto transition-all duration-300 ease-in-out border-input-border overflow-hidden min-h-[450px] md:min-h-[355px] md:max-h-[355px] max-w-[345px] rounded-xl shadow-sm shadow-black/20 w-full md:w-fit`}>
       <img
         src={coverImage}
         alt={name}
