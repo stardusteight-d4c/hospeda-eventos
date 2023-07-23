@@ -10,7 +10,7 @@ export class EventService implements IEventService {
       .create(request)
       .then((event) => event.reflect)
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         return null;
       });
   }
@@ -20,16 +20,26 @@ export class EventService implements IEventService {
       .update(request)
       .then((event) => event.reflect)
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         return null;
       });
   }
 
   public async deleteEvent(request: { id: string }): Promise<void> {
     return this.eventRepository.delete({ id: request.id }).catch((err) => {
-      console.log(err);
+      console.error(err);
       return null;
     });
+  }
+
+  public async getById(request: { id: string }): Promise<IEvent> {
+    return this.eventRepository
+      .find({ id: request.id })
+      .then((event) => event.reflect)
+      .catch((err) => {
+        console.error(err);
+        return null;
+      });
   }
 
   public async getEvents(): Promise<IEvent[]> {
@@ -37,7 +47,7 @@ export class EventService implements IEventService {
       .getMany()
       .then((event) => event.map((event) => event.reflect))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         return null;
       });
   }
@@ -47,7 +57,7 @@ export class EventService implements IEventService {
       .getByName({ name: request.name })
       .then((event) => event.map((event) => event.reflect))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         return null;
       });
   }
@@ -63,7 +73,7 @@ export class EventService implements IEventService {
       })
       .then((event) => event.map((event) => event.reflect))
       .catch((err) => {
-        console.log(err);
+        console.error(err);
         return null;
       });
   }

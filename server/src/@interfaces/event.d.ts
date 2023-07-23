@@ -21,6 +21,7 @@ export interface IEventService {
   createEvent(request: Event): Promise<IEvent>;
   updateEvent(request: Event): Promise<IEvent>;
   deleteEvent(request: { id: string }): Promise<void>;
+  getById(request: { id: string }): Promise<IEvent>;
   getEvents(): Promise<IEvent[]>;
   getEventsByName(request: { name: string }): Promise<IEvent[]>;
   getEventsWithPagination(request: {
@@ -33,6 +34,7 @@ export interface IEventRepository {
   create(input: Event): Promise<Event>;
   update(input: Event): Promise<Event>;
   delete(input: { id: string }): Promise<void>;
+  find(input: { id: string }): Promise<Event | null>;
   getMany(): Promise<Event[]>;
   getByName(input: { name: string }): Promise<Event[]>;
   getWithPagination(input: {

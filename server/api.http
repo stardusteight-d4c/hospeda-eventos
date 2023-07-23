@@ -1,2 +1,19 @@
 ###
-GET http://localhost:3000/
+POST http://localhost:3000/event
+Content-Type: "application/json"
+
+{
+  "name": "Test Event",
+  "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
+  "cep": "68908-876",
+  "city": "Macapá",
+  "state": "AP",
+  "complement": "Área Comercial",
+  "coverImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/a7/9e/3d/fachada.jpg?w=700&h=-1&s=1",
+  "description": "Evento de Tecnologia super bacana",
+  "neighborhood": "Infraero",
+  "number": "170",
+  "privacy": "public",
+  "startDate": "2023-08-20T12:00:00.000Z",
+  "startTime": "10:00",
+}

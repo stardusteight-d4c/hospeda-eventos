@@ -24,6 +24,11 @@ export class InMemoryEventRepository implements IEventRepository {
     this.#events.delete(input.id);
   }
 
+  async find(input: { id: string }): Promise<Event | null> {
+    const { id } = input;
+    const event = this.#events.get(id);
+    return event || null;
+  }
   async getMany(): Promise<Event[]> {
     return Array.from(this.#events.values());
   }
