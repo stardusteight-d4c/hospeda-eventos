@@ -2,13 +2,18 @@ import { IEvent } from 'src/@interfaces/event';
 
 interface ChangeData {
   name?: string;
+  cep?: string
+  privacy?: string
 }
 
 export function makeEvent(data?: ChangeData): Omit<IEvent, 'id'> {
+  const currentDate = new Date();
+  const startDate = new Date(currentDate);
+  startDate.setDate(currentDate.getDate() + 20);
   return {
     name: data?.name ?? 'Test Event',
     address: 'Rua Janary Nunes, 170 - Infraero, Macapá - AP',
-    cep: '68908-876',
+    cep: data?.cep ?? '68908-876',
     city: 'Macapá',
     state: 'AP',
     complement: 'Área Comercial',
@@ -17,8 +22,9 @@ export function makeEvent(data?: ChangeData): Omit<IEvent, 'id'> {
     description: 'Evento de Tecnologia super bacana',
     neighborhood: 'Infraero',
     number: '170',
-    privacy: 'public',
-    startDate: new Date('2023-07-22T12:00:00.000Z'),
+    // @ts-ignore
+    privacy: data?.privacy ?? 'public',
+    startDate,
     startTime: '10:00',
   };
 }

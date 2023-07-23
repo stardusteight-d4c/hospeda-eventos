@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import { IEvent, IEventRepository, IEventService } from 'src/@interfaces/event';
 import { Event } from 'src/entities/event.entity';
 
@@ -5,7 +6,6 @@ export class EventService implements IEventService {
   constructor(readonly eventRepository: IEventRepository) {}
 
   public async createEvent(request: Event): Promise<IEvent> {
-    //  Tratar dados // fazer validações testes
     return this.eventRepository
       .create(request)
       .then((event) => event.reflect)
@@ -35,7 +35,7 @@ export class EventService implements IEventService {
   public async getById(request: { id: string }): Promise<IEvent> {
     return this.eventRepository
       .find({ id: request.id })
-      .then((event) => event.reflect)
+      .then((event) => event?.reflect ?? null)
       .catch((err) => {
         console.error(err);
         return null;
@@ -45,7 +45,7 @@ export class EventService implements IEventService {
   public async getEvents(): Promise<IEvent[]> {
     return this.eventRepository
       .getMany()
-      .then((event) => event.map((event) => event.reflect))
+      .then((events) => events.map((event) => event.reflect))
       .catch((err) => {
         console.error(err);
         return null;

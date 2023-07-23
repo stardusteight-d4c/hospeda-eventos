@@ -11,6 +11,11 @@ export class PrismaEventRepository implements IEventRepository {
   delete(input: { id: string }): Promise<void> {
     throw new Error('Method not implemented.');
   }
+
+  find(input: { id: string }): Promise<Event> {
+    throw new Error('Method not implemented.');
+  }
+
   getMany(): Promise<Event[]> {
     throw new Error('Method not implemented.');
   }

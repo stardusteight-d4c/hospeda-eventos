@@ -1,5 +1,6 @@
-import { randomUUID } from "node:crypto";
+import { randomUUID } from 'node:crypto';
 import { IEvent } from 'src/@interfaces/event';
+import { EventValidator } from '../services/event.validator';
 
 export class Event {
   #id?: string;
@@ -18,6 +19,7 @@ export class Event {
   #startTime: string;
 
   constructor(properties: IEvent) {
+    new EventValidator().ValidateEvent(properties);
     this.#id = properties.id ?? randomUUID();
     this.#name = properties.name;
     this.#coverImage = properties.coverImage;
