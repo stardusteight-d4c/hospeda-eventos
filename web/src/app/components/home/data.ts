@@ -1,4 +1,4 @@
-import { CardProps } from "./components/home/Card"
+import { CardProps } from "./integrate/Card"
 import MasterCWB2 from "@/app/assets/hostings/MasterCWB2.jpg"
 import MabuCWB05 from "@/app/assets/hostings/MabuCWB05.jpg"
 import VitoriaKing from "@/app/assets/hostings/VitoriaKing.jpg"

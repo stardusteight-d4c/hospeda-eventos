@@ -1,5 +1,5 @@
-import { CalendarBlank } from "@/app/components/icons/CalendarBlank"
-import { MapPin } from "@/app/components//icons/MapPin"
+import { CalendarBlank } from "@/app/components/@globals/icons/CalendarBlank"
+import { MapPin } from "@/app/components/@globals/icons/MapPin"
 import { Operations } from "./Operations"
 import { IEvent } from "@/app/@interfaces/IEvent"
 

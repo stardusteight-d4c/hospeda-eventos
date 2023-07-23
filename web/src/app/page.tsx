@@ -1,35 +1,22 @@
-import { Header } from "./components/header/Header"
-import { Sidebar } from "./components/sidebar/Sidebar"
-import { Card } from "./components/home/Card"
-import { homePageInfo } from "./data"
+import { Sidebar } from "@/app/components/@globals"
+import { Main, Header } from "@/app/components/home"
+import { homeStyles as css } from "./styles"
+import { ReactNode } from "react"
+
+interface WrapperProps {
+  children: ReactNode
+}
 
 export default function Home() {
   return (
-    <div className="relative bg-white max-w-[100vw] w-full overflow-x-hidden">
+    <Wrapper>
       <Header />
       <Sidebar />
-      <div className="flex max-w-7xl w-full mx-auto">
-        <main className="pb-8 mt-8 px-4 md:pl-[145px] md:pr-[89px] w-full">
-          <h1 className="text-content-title leading-[37.5px] text-[32px] font-bold">
-            Encontre sua Hospedagem!
-          </h1>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full mt-6">
-            {homePageInfo.map((host, index) => (
-              <Card key={index} {...host} />
-            ))}
-            {homePageInfo.map((host, index) => (
-              <Card key={index} {...host} styles="hidden md:block" />
-            ))}
-          </div>
-          <a
-            href="https://hospedaeventos.com.br/todososhoteis/"
-            target="_blank"
-            className="w-full text-lg cursor-pointer font-medium hover:underline text-interactive-primary flex items-center justify-center mt-8"
-          >
-            Ver mais
-          </a>
-        </main>
-      </div>
-    </div>
+      <Main />
+    </Wrapper>
   )
+}
+
+const Wrapper = ({ children }: WrapperProps) => {
+  return <div className={css.wrapper}>{children}</div>
 }

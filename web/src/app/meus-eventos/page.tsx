@@ -1,6 +1,5 @@
-import { Header } from "@/app/components/header/Header"
+import { Header, Sidebar } from "@/app/components/@globals"
 import { Main } from "@/app/components/main/Main"
-import { Sidebar } from "@/app/components/sidebar/Sidebar"
 
 export default function MyEventsPage() {
   return (

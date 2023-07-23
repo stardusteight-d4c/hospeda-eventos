@@ -1,5 +1,4 @@
-import React from "react"
-import { MapPin } from "../icons/MapPin"
+import { MapPin } from "../../@globals/icons/MapPin"
 
 export interface CardProps {
   name: string
@@ -21,13 +20,13 @@ export const Card = ({
   styles
 }: CardProps) => {
   return (
-    <div className={`${styles} col-span-1 relative border mx-auto transition-all duration-300 ease-in-out border-input-border overflow-hidden min-h-[450px] md:min-h-[355px] md:max-h-[355px] max-w-[345px] rounded-xl shadow-sm shadow-black/20 w-full md:w-fit`}>
+    <div className={`${styles} ${soldOff ? "bg-gray-400/30" : "bg-white"}  col-span-1 relative border mx-auto transition-all duration-300 ease-in-out border-input-border overflow-hidden min-h-[450px] md:min-h-[355px] md:max-h-[355px] max-w-[345px] rounded-xl shadow-sm shadow-black/20 w-full md:w-fit`}>
       <img
         src={coverImage}
         alt={name}
         className={`${soldOff ? "brightness-50" : "brightness-100"}  bg-cover select-none pointer-events-none`}
       />
-      <div className="p-2 w-full ">
+      <div className="p-2 w-full">
         <h2
           title="Nacional assasd Inn Sorocaba assssss asssssss adsssssss"
           className="text-lg border-b h-[54px] border-dashed border-b-input-border pb-1 mb-1 flex items-center justify-center text-center cursor-default font-semibold leading-snug"

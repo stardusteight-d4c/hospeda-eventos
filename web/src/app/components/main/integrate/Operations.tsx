@@ -2,9 +2,9 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { DotsThree } from "@/app/components/icons/DotsThree"
-import { Edit } from "@/app/components/icons/Edit"
-import { Delete } from "@/app/components/icons/Delete"
+import { DotsThree } from "@/app/components/@globals/icons/DotsThree"
+import { Edit } from "@/app/components/@globals/icons/Edit"
+import { Delete } from "@/app/components/@globals/icons/Delete"
 import { IEvent } from "@/app/@interfaces/IEvent"
 import { useFormDataContext } from "@/app/@context/FormContextProvider"
 
