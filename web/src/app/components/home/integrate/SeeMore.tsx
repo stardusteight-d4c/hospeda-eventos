@@ -1,9 +1,11 @@
+import { seeMoreStyles as css } from "./styles"
+
 export const SeeMore = () => {
   return (
     <a
       href="https://hospedaeventos.com.br/todososhoteis/"
       target="_blank"
-      className="w-full text-lg cursor-pointer font-medium hover:underline text-interactive-primary flex items-center justify-center mt-8"
+      className={css.link}
     >
       Ver mais
     </a>

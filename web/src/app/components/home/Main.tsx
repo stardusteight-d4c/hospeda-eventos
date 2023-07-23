@@ -2,6 +2,7 @@ import { PageTitle } from "@/app/components/@globals"
 import { homePageInfo } from "./data"
 import { Card, SeeMore } from "./integrate"
 import { mainStyles as css } from "./styles"
+import { Fragment } from "react"
 
 export const Main = () => {
   return (
@@ -17,13 +18,13 @@ export const Main = () => {
 
 const renderCards = () => {
   return (
-    <>
+    <Fragment>
       {homePageInfo.map((host, index) => (
         <Card key={index} {...host} />
       ))}
       {homePageInfo.map((host, index) => (
         <Card key={index} {...host} styles="hidden md:block" />
       ))}
-    </>
+    </Fragment>
   )
 }
