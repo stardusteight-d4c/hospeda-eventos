@@ -8,6 +8,7 @@ interface Props {
   id: string
   placeholder: string
   type?: string
+  selectedToEditFieldValue?: any
   inputValues: InputValues
   setInputValues: Dispatch<SetStateAction<InputValues>>
 }
@@ -17,6 +18,7 @@ export const InputForm = ({
   id,
   placeholder,
   type = "text",
+  selectedToEditFieldValue,
   inputValues,
   setInputValues,
 }: Props) => {
@@ -45,6 +47,7 @@ export const InputForm = ({
       <input
         id={id}
         type={type}
+        value={selectedToEditFieldValue}
         onChange={(e) => handleChange(e)}
         className="p-3 border border-input-border rounded-xl"
         placeholder={placeholder}

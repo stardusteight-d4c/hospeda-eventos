@@ -3,13 +3,11 @@ import { IEvent } from "@/app/@interfaces/IEvent"
 import { EventRow } from "./EventRow"
 
 export const EventTable = async () => {
-  const events = await fetch("http://localhost:3333/event", {
+  const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
     next: {
-      revalidate: 10
-    }
-  }).then((response) =>
-    response.json()
-  )
+      revalidate: 10,
+    },
+  }).then((response) => response.json())
 
   return (
     <section className="overflow-x-scroll lg:overflow-visible border border-layout-body rounded-xl mt-6 mb-10">

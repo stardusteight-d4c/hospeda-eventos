@@ -1,7 +1,7 @@
 type Form = {
   id: string
   eventName: string
-  uploadedFile: File | null
+  uploadedFile?: File | null
   coverImage: string
   privacy: "public" | "private"
   description: string

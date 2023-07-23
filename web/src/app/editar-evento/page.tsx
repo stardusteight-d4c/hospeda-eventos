@@ -39,6 +39,14 @@ export default function EditEventPage(props: Props) {
     console.log(formData)
   }
 
+  function formatDateToYYYYMMDD(date: Date) {
+    const year = date.getFullYear()
+    const month = String(date.getMonth() + 1).padStart(2, "0") // Note o +1 pois os meses vão de 0 a 11
+    const day = String(date.getDate()).padStart(2, "0")
+
+    return `${year}-${month}-${day}`
+  }
+
   const inputData = makeInputData(inputValues, setInputValues)
 
   return (
@@ -67,7 +75,10 @@ export default function EditEventPage(props: Props) {
           </h2>
 
           <div className="mt-[46px] ">
-            <InputForm {...inputData.eventName} />
+            <InputForm
+              {...inputData.eventName}
+              selectedToEditFieldValue={formData.selectedToEdit?.eventName}
+            />
           </div>
           <div>
             <Uploader />
@@ -118,6 +129,7 @@ export default function EditEventPage(props: Props) {
               </div>
               <textarea
                 id="description"
+                value={formData.selectedToEdit?.description}
                 onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
                   const { id, value } = event.target
                   setFormData((prevFormData) => ({
@@ -137,25 +149,46 @@ export default function EditEventPage(props: Props) {
           </h3>
           <div className="grid grid-cols-2 gap-x-4 w-full mt-[46px] mb-4">
             <div className="col-span-1">
-              <InputForm {...inputData.cep} />
+              <InputForm
+                {...inputData.cep}
+                selectedToEditFieldValue={formData.selectedToEdit?.cep}
+              />
             </div>
             <div className="col-span-1">
-              <InputForm {...inputData.number} />
+              <InputForm
+                {...inputData.number}
+                selectedToEditFieldValue={formData.selectedToEdit?.number}
+              />
             </div>
           </div>
-          <InputForm {...inputData.address} />
+          <InputForm
+            {...inputData.address}
+            selectedToEditFieldValue={formData.selectedToEdit?.address}
+          />
           <div className="grid grid-cols-2 gap-4 mt-4">
             <div className="col-span-1">
-              <InputForm {...inputData.complement} />
+              <InputForm
+                {...inputData.complement}
+                selectedToEditFieldValue={formData.selectedToEdit?.complement}
+              />
             </div>
             <div className="col-span-1">
-              <InputForm {...inputData.neighborhood} />
+              <InputForm
+                {...inputData.neighborhood}
+                selectedToEditFieldValue={formData.selectedToEdit?.neighborhood}
+              />
             </div>
             <div className="col-span-1">
-              <InputForm {...inputData.city} />
+              <InputForm
+                {...inputData.city}
+                selectedToEditFieldValue={formData.selectedToEdit?.city}
+              />
             </div>
             <div className="col-span-1">
-              <InputForm {...inputData.state} />
+              <InputForm
+                {...inputData.state}
+                selectedToEditFieldValue={formData.selectedToEdit?.state}
+              />
             </div>
           </div>
           <div className="w-full h-0 border-t border-t-layout-body my-8" />
@@ -163,16 +196,33 @@ export default function EditEventPage(props: Props) {
             Data e horário
           </h3>
           <div className="flex items-center gap-x-4">
-            <InputForm {...inputData.startDate} />
-            <InputForm {...inputData.startTime} />
+            <InputForm
+              {...inputData.startDate}
+              selectedToEditFieldValue={formatDateToYYYYMMDD(
+                new Date(formData.selectedToEdit?.startDate!)
+              )}
+            />
+            <InputForm
+              {...inputData.startTime}
+              selectedToEditFieldValue={formData.selectedToEdit?.startTime}
+            />
           </div>
           <div className="w-full flex justify-end">
-            <button
-              onClick={handleSubmit}
-              className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto"
-            >
-              Cadastrar
-            </button>
+            {formData.selectedToEdit !== null ? (
+              <button
+                onClick={handleSubmit}
+                className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-success-light text-content-title mt-8 ml-auto"
+              >
+                Salvar alterações
+              </button>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto"
+              >
+                Cadastrar
+              </button>
+            )}
           </div>
         </section>
       </div>

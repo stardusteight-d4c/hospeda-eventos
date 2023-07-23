@@ -18,3 +18,10 @@ body {
   border-radius: 50px;
   background: #2c68f4;
 }
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+  border-radius: 10px;
+}
