@@ -35,10 +35,16 @@ export class InMemoryEventRepository implements IEventRepository {
 
   async getByName(input: { name: string }): Promise<Event[]> {
     const events = Array.from(this.#events.values());
-    return events.filter((event) => event.reflect.name === input.name);
+    const keyword = input.name.toLowerCase();
+    return events.filter((event) =>
+      event.reflect.name.toLowerCase().includes(keyword),
+    );
   }
 
-  async getWithPagination(input: { pageNumber: number; pageSize: number }): Promise<Event[]> {
+  async getWithPagination(input: {
+    pageNumber: number;
+    pageSize: number;
+  }): Promise<Event[]> {
     const events = Array.from(this.#events.values());
     const startIndex = (input.pageNumber - 1) * input.pageSize;
     const endIndex = startIndex + input.pageSize;

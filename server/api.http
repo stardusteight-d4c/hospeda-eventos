@@ -3,7 +3,7 @@ POST http://localhost:3000/event
 Content-Type: application/json
 
 {
-  "name": "Test Event",
+  "name": "Event Test",
   "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
   "cep": "68908-876",
   "city": "Macapá",
@@ -19,12 +19,16 @@ Content-Type: application/json
 }
 ### 
 GET http://localhost:3000/event
-### 
+###
+GET http://localhost:3000/event/search?name=test
+###
+GET http://localhost:3000/event/e8157e04-42a4-441d-8f0c-651feffd9104
+###
 PUT http://localhost:3000/event
 Content-Type: application/json
 
 {
-  "id": "76b6d949-5048-41b3-9527-c6abef2e95fd",
+  "id": "d5dde737-4d50-48d4-8e58-454e8ccd3930",
   "name": "Updated Event",
   "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
   "cep": "68908-876",
@@ -40,4 +44,4 @@ Content-Type: application/json
   "startTime": "10:00"
 }
 ###
-DELETE http://localhost:3000/event?id=
+DELETE http://localhost:3000/event?id=df94a65c-9abd-4dfd-8984-1ea1e3b37320

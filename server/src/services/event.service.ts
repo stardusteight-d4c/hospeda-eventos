@@ -1,4 +1,3 @@
-import { Injectable } from '@nestjs/common';
 import { IEvent, IEventRepository, IEventService } from 'src/@interfaces/event';
 import { Event } from 'src/entities/event.entity';
 
