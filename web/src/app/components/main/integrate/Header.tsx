@@ -1,7 +1,20 @@
+"use client"
+
+import { useFormDataContext } from "@/app/@context/FormContextProvider"
 import { MagnifyingGlass } from "@/app/components/icons/MagnifyingGlass"
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export const Header = () => {
+  const router = useRouter()
+  const { setFormData } = useFormDataContext()
+
+  async function proceedToCreateEvent() {
+    setFormData({
+      selectedToEdit: null,
+    } as any)
+    router.push("/editar-evento")
+  }
+
   return (
     <>
       <h1 className="text-content-title leading-[37.5px] text-[32px] font-bold">
@@ -16,12 +29,12 @@ export const Header = () => {
           />
           <MagnifyingGlass className="absolute top-1/2 -translate-y-1/2 left-3" />
         </div>
-        <Link
-          href="/editar-evento"
+        <button
+          onClick={() => proceedToCreateEvent()}
           className="whitespace-nowrap cursor-pointer mt-4 md:mt-0 active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-primary rounded-full flex items-center justify-center py-3 px-2 w-full md:w-[223px]"
         >
           Criar evento
-        </Link>
+        </button>
       </div>
     </>
   )

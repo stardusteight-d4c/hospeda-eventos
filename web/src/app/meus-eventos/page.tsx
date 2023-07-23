@@ -6,8 +6,8 @@ export default function MyEventsPage() {
   return (
     <div className="relative bg-white max-w-screen w-full overflow-x-hidden">
       <Header />
+      <Sidebar />
       <div className="flex max-w-7xl w-full mx-auto">
-        <Sidebar />
         <Main />
       </div>
     </div>

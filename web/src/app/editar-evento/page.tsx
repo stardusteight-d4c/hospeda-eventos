@@ -12,15 +12,23 @@ import { Paperclip } from "../components/icons/Paperclip"
 import { TrashSimple } from "../components/icons/TrashSimple"
 import { InputForm } from "./integrate/InputForm"
 import { Uploader } from "./integrate/Uploader"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { makeInputData } from "./integrate/data"
 import { useFormDataContext } from "../@context/FormContextProvider"
-import { log } from "console"
+import { TogglePrivacy } from "./integrate/TogglePrivacy"
+import { IEvent } from "../@interfaces/IEvent"
+import { getFormValuesToSubmit } from "../utils/getInputFormValues"
 
 interface Props {}
 
 export default function EditEventPage(props: Props) {
   const { setFormData, formData } = useFormDataContext()
+  const [privacy, setPrivacy] = useState<"public" | "private">("public")
+  useEffect(() => {
+    if (formData.selectedToEdit?.privacy) {
+      setPrivacy(formData.selectedToEdit?.privacy)
+    }
+  }, [])
   const [inputValues, setInputValues] = useState<InputValues>({
     eventName: "",
     cep: "",
@@ -36,7 +44,7 @@ export default function EditEventPage(props: Props) {
   })
 
   function handleSubmit() {
-    console.log(formData)
+    console.log(getFormValuesToSubmit(formData))
   }
 
   function formatDateToYYYYMMDD(date: Date) {
@@ -87,14 +95,7 @@ export default function EditEventPage(props: Props) {
             <label htmlFor="" className="text-content-base">
               Privacidade do evento
             </label>
-            <div className="flex bg-layout-body items-center justify-center rounded-full w-fit p-1">
-              <span className="block py-2 px-6 cursor-pointer text-white bg-interactive-primary rounded-full text-center">
-                Publico
-              </span>
-              <span className="block py-2 px-6 cursor-pointer text-gray-500 rounded-full text-center">
-                Privado
-              </span>
-            </div>
+            <TogglePrivacy privacy={privacy} setPrivacy={setPrivacy} />
           </div>
 
           <div className="w-full mt-[18px] flex flex-col gap-y-2">
@@ -129,7 +130,7 @@ export default function EditEventPage(props: Props) {
               </div>
               <textarea
                 id="description"
-                value={formData.selectedToEdit?.description}
+                defaultValue={formData.selectedToEdit?.description}
                 onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
                   const { id, value } = event.target
                   setFormData((prevFormData) => ({

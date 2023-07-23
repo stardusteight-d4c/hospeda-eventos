@@ -41,11 +41,11 @@ export const EventRow = (props: IEvent) => {
       <span className="max-w-[273px] w-full relative flex items-center">
         {props.privacy === "public" ? (
           <button className="capitalize flex items-center py-2 px-6 rounded-full text-content-title text-sm bg-success-light border border-success-dark">
-            {props.privacy}
+            Público
           </button>
         ) : (
           <button className="capitalize flex items-center py-2 px-6 rounded-full text-content-title text-sm bg-error-light border border-error-dark">
-            {props.privacy}
+            Privado
           </button>
         )}
         <Operations {...props} />

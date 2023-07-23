@@ -1,7 +1,7 @@
 "use client"
 
 import { useFormDataContext } from "@/app/@context/FormContextProvider"
-import { Dispatch, SetStateAction, useRef, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
 
 interface Props {
   label: string
@@ -22,7 +22,7 @@ export const InputForm = ({
   inputValues,
   setInputValues,
 }: Props) => {
-  const { formData, setFormData } = useFormDataContext()
+  const { setFormData } = useFormDataContext()
   const inputValuesRef = useRef(inputValues); 
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +38,6 @@ export const InputForm = ({
     }));
   };
 
-
   return (
     <div className="w-full flex flex-col gap-y-2">
       <label htmlFor={id} className="text-content-base">
@@ -47,7 +46,7 @@ export const InputForm = ({
       <input
         id={id}
         type={type}
-        value={selectedToEditFieldValue}
+        defaultValue={selectedToEditFieldValue}
         onChange={(e) => handleChange(e)}
         className="p-3 border border-input-border rounded-xl"
         placeholder={placeholder}

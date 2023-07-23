@@ -14,7 +14,7 @@ export const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <aside className="hidden md:block w-14 h-screen fixed top-0 pt-24 z-0 bg-layout-spotlight">
+      <aside className="hidden md:block w-14 h-screen fixed left-0 top-0 pt-24 z-0 bg-layout-spotlight">
         <nav className="py-6 px-3 h-full w-full relative">
           <ul className="flex flex-col items-center gap-y-8">
             <Link

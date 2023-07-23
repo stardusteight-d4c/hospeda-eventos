@@ -79,5 +79,11 @@ export const makeInputData = (
       inputValues,
       setInputValues,
     },
+    description: {
+      id: "description",
+    },
+    privacy: {
+      id: "privacy",
+    },
   }
 }
