@@ -8,7 +8,7 @@ export interface CardProps {
   location: string
   link: string
   soldOff?: boolean
-  styles: string
+  styles?: string
 }
 
 export const Card = ({

@@ -24,7 +24,7 @@ export const homePageInfo: CardProps[] = [
     minPrice: 218,
   },
   {
-    name: "Vitória Hotel Express Dom Pedro",
+    name: "Vitória Hotel Express Dom Pedro Test Nome Grande Segundo King",
     coverImage: VitoriaKing.src,
     link: "https://hospedaeventos.com.br/hoteis/vitoria-hotel-express-dom-pedro/",
     location: "Campinas | SP",
