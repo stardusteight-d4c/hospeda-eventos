@@ -9,6 +9,7 @@ import { TextItalic } from "../components/icons/TextItalic"
 import { ListBullets } from "../components/icons/ListBullets"
 import { ListNumbers } from "../components/icons/ListNumbers"
 import { Paperclip } from "../components/icons/Paperclip"
+import { useRouter } from "next/navigation"
 import { TrashSimple } from "../components/icons/TrashSimple"
 import { InputForm } from "./integrate/InputForm"
 import { Uploader } from "./integrate/Uploader"
@@ -16,12 +17,10 @@ import { useEffect, useState } from "react"
 import { makeInputData } from "./integrate/data"
 import { useFormDataContext } from "../@context/FormContextProvider"
 import { TogglePrivacy } from "./integrate/TogglePrivacy"
-import { IEvent } from "../@interfaces/IEvent"
 import { getFormValuesToSubmit } from "../utils/getInputFormValues"
 
-interface Props {}
-
-export default function EditEventPage(props: Props) {
+export default function EditEventPage() {
+  const router = useRouter()
   const { setFormData, formData } = useFormDataContext()
   const [privacy, setPrivacy] = useState<"public" | "private">("public")
   useEffect(() => {
@@ -44,12 +43,39 @@ export default function EditEventPage(props: Props) {
   })
 
   function handleSubmit() {
-    console.log(getFormValuesToSubmit(formData))
+    const eventData = getFormValuesToSubmit(formData)
+    const test = {
+      ...eventData,
+      coverImage:
+        "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg",
+    }
+    fetch(`${process.env.NEXT_SERVER_URL}/event`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(test),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("network response was not ok")
+        }
+        return response.json()
+      })
+      .then(() => {
+        setTimeout(() => {
+          location.reload()
+        }, 500)
+        router.push("/meus-eventos")
+      })
+      .catch((error) => {
+        console.error("There was an error making the request:", error)
+      })
   }
 
   function formatDateToYYYYMMDD(date: Date) {
     const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, "0") 
+    const month = String(date.getMonth() + 1).padStart(2, "0")
     const day = String(date.getDate()).padStart(2, "0")
     return `${year}-${month}-${day}`
   }
