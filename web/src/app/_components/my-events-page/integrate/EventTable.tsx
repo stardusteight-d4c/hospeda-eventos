@@ -1,5 +1,5 @@
 import { Key } from "react"
-import { IEvent } from "@/app/@interfaces/IEvent"
+import { IEvent } from "@/app/_interfaces/IEvent"
 import { EventRow } from "./EventRow"
 
 export const EventTable = async () => {

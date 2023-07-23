@@ -1,7 +1,7 @@
-import { CalendarBlank } from "@/app/components/@globals/icons/CalendarBlank"
-import { MapPin } from "@/app/components/@globals/icons/MapPin"
+import { CalendarBlank } from "@/app/_components/@globals/icons/CalendarBlank"
+import { MapPin } from "@/app/_components/@globals/icons/MapPin"
 import { Operations } from "./Operations"
-import { IEvent } from "@/app/@interfaces/IEvent"
+import { IEvent } from "@/app/_interfaces/IEvent"
 
 export const EventRow = (props: IEvent) => {
   function formatDate(date: Date) {

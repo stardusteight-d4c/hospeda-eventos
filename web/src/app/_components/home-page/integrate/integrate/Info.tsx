@@ -1,4 +1,4 @@
-import { MapPin } from "@/app/components/@globals/icons"
+import { MapPin } from "@/app/_components/@globals/icons"
 import { infoStyles as css } from "./styles"
 
 interface Props {

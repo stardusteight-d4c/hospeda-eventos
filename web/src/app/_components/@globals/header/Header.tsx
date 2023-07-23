@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import userPlaceholder from "@/app/assets/user-placeholder.svg"
-import { Hospeda } from "@/app/components/@globals/icons"
+import userPlaceholder from "@/app/_assets/user-placeholder.svg"
+import { Hospeda } from "@/app/_components/@globals/icons"
 import { headerStyles as css } from "./styles"
 
 export const Header = () => {

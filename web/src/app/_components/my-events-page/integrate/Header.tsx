@@ -1,7 +1,7 @@
 "use client"
 
-import { useFormDataContext } from "@/app/@context/FormContextProvider"
-import { MagnifyingGlass } from "@/app/components/@globals/icons/MagnifyingGlass"
+import { useFormDataContext } from "@/app/_context/FormContextProvider"
+import { MagnifyingGlass } from "@/app/_components/@globals/icons/MagnifyingGlass"
 import { useRouter } from "next/navigation"
 
 export const Header = () => {

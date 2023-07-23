@@ -1,4 +1,4 @@
-import { IEvent } from "../@interfaces/IEvent"
+import { IEvent } from "../_interfaces/IEvent"
 
 export function getFormValuesToSubmit(formData: IFormData): IEvent {
   const id = formData.selectedToEdit?.id ?? undefined

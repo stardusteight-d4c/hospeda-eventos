@@ -1,12 +1,12 @@
 import { CardProps } from "./integrate/Card"
-import MasterCWB2 from "@/app/assets/hostings/MasterCWB2.jpg"
-import MabuCWB05 from "@/app/assets/hostings/MabuCWB05.jpg"
-import VitoriaKing from "@/app/assets/hostings/VitoriaKing.jpg"
-import AltaReggia from "@/app/assets/hostings/AltaReggia.jpg"
-import IntercityBatelCuritiba from "@/app/assets/hostings/IntercityBatelCuritiba.jpg"
-import GrandeMercure from "@/app/assets/hostings/GrandeMercure.webp"
-import NacionalInnSorocaba from "@/app/assets/hostings/NacionalInnSorocaba.jpg"
-import Novotel from "@/app/assets/hostings/Novotel.webp"
+import MasterCWB2 from "@/app/_assets/hostings/MasterCWB2.jpg"
+import MabuCWB05 from "@/app/_assets/hostings/MabuCWB05.jpg"
+import VitoriaKing from "@/app/_assets/hostings/VitoriaKing.jpg"
+import AltaReggia from "@/app/_assets/hostings/AltaReggia.jpg"
+import IntercityBatelCuritiba from "@/app/_assets/hostings/IntercityBatelCuritiba.jpg"
+import GrandeMercure from "@/app/_assets/hostings/GrandeMercure.webp"
+import NacionalInnSorocaba from "@/app/_assets/hostings/NacionalInnSorocaba.jpg"
+import Novotel from "@/app/_assets/hostings/Novotel.webp"
 
 export const homePageInfo: CardProps[] = [
   {

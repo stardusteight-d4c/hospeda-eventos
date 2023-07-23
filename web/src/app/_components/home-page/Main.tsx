@@ -1,4 +1,4 @@
-import { PageTitle } from "@/app/components/@globals"
+import { PageTitle } from "@/app/_components/@globals"
 import { homePageInfo } from "./data"
 import { Card, SeeMore } from "./integrate"
 import { mainStyles as css } from "./styles"

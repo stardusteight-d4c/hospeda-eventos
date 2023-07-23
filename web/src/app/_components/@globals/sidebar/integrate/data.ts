@@ -4,7 +4,7 @@ import {
   CurrencyDollar,
   House,
   Tag,
-} from "@/app/components/@globals/icons"
+} from "@/app/_components/@globals/icons"
 
 export const navItems = [
   {

@@ -2,11 +2,11 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { DotsThree } from "@/app/components/@globals/icons/DotsThree"
-import { Edit } from "@/app/components/@globals/icons/Edit"
-import { Delete } from "@/app/components/@globals/icons/Delete"
-import { IEvent } from "@/app/@interfaces/IEvent"
-import { useFormDataContext } from "@/app/@context/FormContextProvider"
+import { DotsThree } from "@/app/_components/@globals/icons/DotsThree"
+import { Edit } from "@/app/_components/@globals/icons/Edit"
+import { Delete } from "@/app/_components/@globals/icons/Delete"
+import { IEvent } from "@/app/_interfaces/IEvent"
+import { useFormDataContext } from "@/app/_context/FormContextProvider"
 
 export const Operations = (props: IEvent) => {
   const router = useRouter()
