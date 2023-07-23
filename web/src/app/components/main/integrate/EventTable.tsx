@@ -4,9 +4,7 @@ import { EventRow } from "./EventRow"
 
 export const EventTable = async () => {
   const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
-    next: {
-      revalidate: 10,
-    },
+    cache: "no-cache",
   }).then((response) => response.json())
 
   return (

@@ -49,9 +49,8 @@ export default function EditEventPage(props: Props) {
 
   function formatDateToYYYYMMDD(date: Date) {
     const year = date.getFullYear()
-    const month = String(date.getMonth() + 1).padStart(2, "0") // Note o +1 pois os meses vão de 0 a 11
+    const month = String(date.getMonth() + 1).padStart(2, "0") 
     const day = String(date.getDate()).padStart(2, "0")
-
     return `${year}-${month}-${day}`
   }
 
