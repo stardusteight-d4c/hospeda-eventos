@@ -1,9 +1,9 @@
-import { EventTable } from "./integrate/EventTable"
-import { Header } from "./integrate/Header"
+import { Header, EventTable } from "./integrate"
+import { mainStyles as css } from "./styles"
 
 export const Main = () => {
   return (
-    <main className="pb-8 mt-8 px-4 md:pl-[145px] md:pr-[89px] w-full">
+    <main className={css.wrapper}>
       <Header />
       <EventTable />
     </main>
