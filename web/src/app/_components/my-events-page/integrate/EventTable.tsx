@@ -1,4 +1,7 @@
+"use client"
+
 import { Key, ReactNode } from "react"
+import { Fade } from "react-awesome-reveal"
 import { IEvent } from "@/app/_interfaces/IEvent"
 import { EventHead, EventRow } from "./integrate"
 import { eventTableStyles as css } from "./styles"
@@ -28,7 +31,9 @@ const Wrapper = ({ children }: WrapperProps) => {
     <section className={css.wrapper}>
       <div className={css.container}>
         <EventHead />
-        <div>{children}</div>
+        <Fade cascade damping={0.6} triggerOnce={true}>
+          <div>{children}</div>
+        </Fade>
       </div>
     </section>
   )

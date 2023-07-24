@@ -1,6 +1,7 @@
 "use client"
 
 import { ReactNode, useState } from "react"
+import { Fade } from "react-awesome-reveal"
 import {
   inputInitialDefaultValues,
   makeInputData,
@@ -22,12 +23,14 @@ export const Form = () => {
   const inputData = makeInputData(inputValues, setInputValues)
 
   return (
-    <Wrapper>
-      <EventInformation inputData={inputData} />
-      <EventPlace inputData={inputData} />
-      <DateAndTime inputData={inputData} />
-      <HandleSubmitButtons />
-    </Wrapper>
+    <Fade duration={1000} damping={0.8}>
+      <Wrapper>
+        <EventInformation inputData={inputData} />
+        <EventPlace inputData={inputData} />
+        <DateAndTime inputData={inputData} />
+        <HandleSubmitButtons />
+      </Wrapper>
+    </Fade>
   )
 }
 

@@ -1,4 +1,4 @@
- - Fazer validação e tratamentos de dados no formulário do front-end, com notificações de erros;
+ - Adicionar animações;
  - (storage) Subir arquivo da imagem para o Subabase/Firebase e mandar apenas o link para o servidor; 
  - Fazer busca por eventos;
  - Fazer a implementação concreta do repositório com Prisma e MongoDB.

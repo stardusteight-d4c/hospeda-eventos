@@ -1,4 +1,7 @@
+"use client"
+
 import { Fragment } from "react"
+import { Fade } from "react-awesome-reveal"
 import { PageTitle } from "@/app/_components/@globals"
 import { homePageInfo } from "./data"
 import { Card, SeeMore } from "./integrate"
@@ -17,12 +20,16 @@ export const Main = () => {
 const renderCards = () => {
   return (
     <Fragment>
-      {homePageInfo.map((host, index) => (
-        <Card key={index} {...host} />
-      ))}
-      {homePageInfo.map((host, index) => (
-        <Card key={index} {...host} styles="hidden md:block" />
-      ))}
+      <Fade cascade damping={1e-1} triggerOnce={true}>
+        {homePageInfo.map((host, index) => (
+          <Card key={index} {...host} />
+        ))}
+      </Fade>
+      <Fade cascade damping={1e-1}>
+        {homePageInfo.map((host, index) => (
+          <Card key={index} {...host} styles="hidden md:block" />
+        ))}
+      </Fade>
     </Fragment>
   )
 }

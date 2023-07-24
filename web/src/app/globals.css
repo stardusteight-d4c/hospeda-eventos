@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply antialiased scroll-smooth text-content-title;
+  @apply antialiased scroll-smooth bg-white text-content-title;
 }
 
 ::-webkit-scrollbar {

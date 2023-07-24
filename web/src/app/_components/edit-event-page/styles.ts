@@ -9,5 +9,5 @@ export const headerStyles = {
 }
 
 export const formStyles = {
-  wrapper: `w-full bg-white shadow-black/20 shadow-md p-4 md:p-12 pb-[84px] rounded-2xl mt-6`,
+  wrapper: `w-full bg-white shadow-black/10 shadow-lg p-4 md:p-12 pb-[84px] rounded-2xl mt-6`,
 }
