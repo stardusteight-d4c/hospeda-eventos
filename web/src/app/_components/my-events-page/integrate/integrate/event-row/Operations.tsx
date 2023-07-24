@@ -5,6 +5,7 @@ import { DotsThree } from "@/app/_components/@globals/icons/DotsThree"
 import { IEvent } from "@/app/_interfaces/IEvent"
 import { DeleteEventPopUp } from "./DeleteEventPopUp"
 import { OperationsDropdown } from "./OperationsDropdown"
+import { operationsStyles as css } from "./styles"
 
 export const Operations = (props: IEvent) => {
   const [showDropdown, setShowDropdown] = useState(false)
@@ -26,15 +27,11 @@ export const Operations = (props: IEvent) => {
   }
 
   return (
-    <div className="absolute right-0">
+    <div className={css.wrapper}>
       <DeleteEventPopUp {...deleteEventPopUpProps} />
       <div
         onClick={() => setShowDropdown(!showDropdown)}
-        className={`${
-          showDropdown
-            ? "bg-interactive-secundary"
-            : "hover:bg-interactive-secundary"
-        } cursor-pointer transition-all duration-100 ease-in-out rounded-full p-1`}
+        className={css.dotsContainer(showDropdown)}
       >
         <DotsThree />
       </div>
