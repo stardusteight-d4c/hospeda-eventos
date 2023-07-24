@@ -1,5 +1,5 @@
 import { IEvent } from "@/app/_interfaces/IEvent"
-import { Event, Hostings, Privacy, Operations } from "./integrate"
+import { Event, Hostings, Privacy, Operations } from "./event-row"
 import { eventRowStyles as css } from "./styles"
 
 export const EventRow = (props: IEvent) => {

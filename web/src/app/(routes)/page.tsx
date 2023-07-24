@@ -19,8 +19,10 @@ const Wrapper = ({ children }: WrapperProps) => {
   return (
     <div className={css.wrapper}>
       <Header />
-      <Sidebar />
-      {children}
+      <div className={css.container}>
+        <Sidebar />
+        {children}
+      </div>
     </div>
   )
 }

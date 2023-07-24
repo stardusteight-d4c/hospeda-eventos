@@ -6,13 +6,11 @@ import { Fragment } from "react"
 
 export const Main = () => {
   return (
-    <div className={css.wrapper}>
-      <main className={css.main}>
-        <PageTitle title="Encontre sua Hospedagem!" />
-        <div className={css.gridContainer}>{renderCards()}</div>
-        <SeeMore />
-      </main>
-    </div>
+    <main className={css.wrapper}>
+      <PageTitle title="Encontre sua Hospedagem!" />
+      <div className={css.gridContainer}>{renderCards()}</div>
+      <SeeMore />
+    </main>
   )
 }
 

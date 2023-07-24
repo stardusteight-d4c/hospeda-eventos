@@ -1,5 +1,5 @@
 export const desktopStyles = {
-  wrapper: `hidden md:block w-14 h-screen fixed left-0 top-0 pt-24 z-0 bg-layout-spotlight`,
+  wrapper: `hidden md:block w-14 h-screen fixed top-0 pt-24 z-0 bg-layout-spotlight shadow-md shadow-black/20`,
   nav: `py-6 px-3 h-full w-full relative`,
   unorderedList: `flex flex-col items-center gap-y-8`,
   handleIcon: (pathname: string, path: string) => {
