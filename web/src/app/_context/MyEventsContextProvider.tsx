@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState } from "react"
-import { IEvent } from "../_interfaces/IEvent"
+import { IEvent } from "@/app/_interfaces/IEvent"
 
 interface Props {
   children: React.ReactNode

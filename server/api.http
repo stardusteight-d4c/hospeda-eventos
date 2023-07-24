@@ -3,7 +3,7 @@ POST http://localhost:3333/event
 Content-Type: application/json
 
 {
-  "name": "New Test",
+  "name": "Minah nova rota",
   "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
   "cep": "68908-876",
   "city": "Macapá",
