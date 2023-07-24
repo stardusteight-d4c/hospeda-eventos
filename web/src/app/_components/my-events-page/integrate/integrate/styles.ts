@@ -13,3 +13,4 @@ export const eventRowStyles = {
   wrapper: `flex items-center border-t border-t-layout-body`,
   container: `max-w-[273px] w-full relative flex items-center`,
 }
+

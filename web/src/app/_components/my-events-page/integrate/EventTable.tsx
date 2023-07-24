@@ -1,7 +1,4 @@
-"use client"
-
 import { Key, ReactNode } from "react"
-import { Fade } from "react-awesome-reveal"
 import { IEvent } from "@/app/_interfaces/IEvent"
 import { EventHead, EventRow } from "./integrate"
 import { eventTableStyles as css } from "./styles"
@@ -15,7 +12,10 @@ export const EventTable = async () => {
     cache: "no-cache",
   })
     .then((response) => response.json())
-    .catch((err) => console.log(err))
+    .catch((err) => {
+      console.log(err)
+      return null
+    })
 
   return (
     <Wrapper>
@@ -31,9 +31,7 @@ const Wrapper = ({ children }: WrapperProps) => {
     <section className={css.wrapper}>
       <div className={css.container}>
         <EventHead />
-        <Fade cascade damping={0.6} triggerOnce={true}>
-          <div>{children}</div>
-        </Fade>
+        <div>{children}</div>
       </div>
     </section>
   )
