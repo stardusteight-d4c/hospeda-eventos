@@ -13,3 +13,10 @@ export const success = (success: string) =>
       {success}
     </div>
   )
+
+export const info = (info: string) =>
+  toast.custom(
+    <div className="bg-white z-50 w-full text-center md:w-[500px] text-lg text-content-title shadow-md shadow-black/20 border-b-4 border-content-title py-3 px-4">
+      {info}
+    </div>
+  )

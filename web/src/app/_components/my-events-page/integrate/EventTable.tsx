@@ -1,4 +1,4 @@
-import { Key, ReactNode } from "react"
+import { Fragment, Key, ReactNode } from "react"
 import { IEvent } from "@/app/_interfaces/IEvent"
 import { EventHead, EventRow } from "./integrate"
 import { eventTableStyles as css } from "./styles"
@@ -19,9 +19,17 @@ export const EventTable = async () => {
 
   return (
     <Wrapper>
-      {events?.map((event: IEvent, index: Key | null | undefined) => (
-        <EventRow key={index} {...event} />
-      ))}
+      {events.length > 0 ? (
+        <Fragment>
+          {events.map((event: IEvent, index: Key | null | undefined) => (
+            <EventRow key={index} {...event} />
+          ))}
+        </Fragment>
+      ) : (
+        <Fragment>
+          <h3 className={css.notFoundEvent}>Nenhum evento encontrado.</h3>
+        </Fragment>
+      )}
     </Wrapper>
   )
 }

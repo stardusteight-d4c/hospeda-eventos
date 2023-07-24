@@ -1,7 +1,7 @@
 export const handleSubmitButtonsStyles = {
   wrapper: `w-full flex justify-end`,
-  updateButton: `w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-success-light text-content-title mt-8 ml-auto`,
-  postButton: `w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto`,
+  updateButton: `w-[223px] font-bold py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-success-light text-content-title mt-8 ml-auto`,
+  postButton: `w-[223px] font-bold py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto`,
 }
 
 export const inputFormStyles = {

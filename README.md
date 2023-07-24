@@ -1,5 +1,5 @@
- - (storage) Subir arquivo da imagem para o Subabase/Firebase e mandar apenas o link para o servidor; 
  - Fazer busca por eventos;
+ - Terminar o projeto FRONT-END
  - Fazer a implementação concreta do repositório com Prisma e MongoDB.
  - Criar um Docker Contaiener que possa executar de forma automatizada toda aplicação dentro do container docker
 
