@@ -2,6 +2,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 import { FormContextProvider } from "./_context/FormContextProvider"
+import { MyEventsContextProvider } from "./_context/MyEventsContextProvider"
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
@@ -24,9 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <FormContextProvider>
-        <body className={roboto.className}>
-          {children}
-        </body>
+        <MyEventsContextProvider>
+          <body className={roboto.className}>{children}</body>
+        </MyEventsContextProvider>
       </FormContextProvider>
     </html>
   )

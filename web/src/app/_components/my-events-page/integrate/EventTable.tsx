@@ -1,27 +1,37 @@
-import { Fragment, Key, ReactNode } from "react"
+"use client"
+
+import { Fragment, Key, ReactNode, useEffect } from "react"
 import { IEvent } from "@/app/_interfaces/IEvent"
 import { EventHead, EventRow } from "./integrate"
 import { eventTableStyles as css } from "./styles"
+import { useMyEventsContext } from "@/app/_context/MyEventsContextProvider"
 
 interface WrapperProps {
   children: ReactNode
 }
 
-export const EventTable = async () => {
-  const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
-    cache: "no-cache",
-  })
-    .then((response) => response.json())
-    .catch((err) => {
-      console.log(err)
-      return null
-    })
+export const EventTable = () => {
+  const { myEvents, setMyEvents } = useMyEventsContext()
+
+  useEffect(() => {
+    ;(async () => {
+      const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
+        cache: "no-cache",
+      })
+        .then((response) => response.json())
+        .catch((err) => {
+          console.log(err)
+          return null
+        })
+      setMyEvents(events)
+    })()
+  }, [])
 
   return (
     <Wrapper>
-      {events.length > 0 ? (
+      {myEvents.length > 0 ? (
         <Fragment>
-          {events.map((event: IEvent, index: Key | null | undefined) => (
+          {myEvents.map((event: IEvent, index: Key | null | undefined) => (
             <EventRow key={index} {...event} />
           ))}
         </Fragment>
