@@ -16,7 +16,9 @@ O desafio foi proposto dia `21/07/2023 21:07` e deveria que ser entregue até di
 ## Hospeda Eventos | Desafio Técnico
 
 ### Objetivo
-> O objetivo deste desafio é desenvolver um sistema de listagem e cadastro de eventos utilizando React.js no frontend e Node.js no backend. O sistema deve seguir o protótipo fornecido no Figma como referência visual.
+> O objetivo deste desafio é desenvolver um sistema de listagem e cadastro de eventos
+utilizando React.js no frontend e Node.js no backend. O sistema deve seguir o protótipo
+fornecido no Figma como referência visual.
 
 ### Frontend
 - Desenvolver o frontend do sistema em React.js, em typescript de preferência;
