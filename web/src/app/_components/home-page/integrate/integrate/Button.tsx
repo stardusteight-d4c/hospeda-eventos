@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import { buttonStyles as css } from "./styles"
 
 interface Props {
@@ -7,7 +8,7 @@ interface Props {
 
 export const Button = ({ soldOff, link }: Props) => {
   return (
-    <>
+    <Fragment>
       {soldOff ? (
         <a href={link} target="_blank" className={css.soldOffTrue}>
           Esgotado
@@ -17,6 +18,6 @@ export const Button = ({ soldOff, link }: Props) => {
           Confira
         </a>
       )}
-    </>
+    </Fragment>
   )
 }
