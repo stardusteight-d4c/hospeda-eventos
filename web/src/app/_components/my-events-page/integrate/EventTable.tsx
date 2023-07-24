@@ -10,11 +10,13 @@ interface WrapperProps {
 export const EventTable = async () => {
   const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
     cache: "no-cache",
-  }).then((response) => response.json())
+  })
+    .then((response) => response.json())
+    .catch((err) => console.log(err))
 
   return (
     <Wrapper>
-      {events.map((event: IEvent, index: Key | null | undefined) => (
+      {events?.map((event: IEvent, index: Key | null | undefined) => (
         <EventRow key={index} {...event} />
       ))}
     </Wrapper>

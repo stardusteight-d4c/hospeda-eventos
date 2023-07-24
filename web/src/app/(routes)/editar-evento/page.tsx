@@ -18,6 +18,10 @@ import { makeInputData } from "./integrate/data"
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
 import { TogglePrivacy } from "./integrate/TogglePrivacy"
 import { getFormValuesToSubmit } from "@/app/_utils/getInputFormValues"
+import { handleSubmit } from "@/app/_utils/handleSubmit"
+import toast, { Toaster } from 'react-hot-toast';
+
+
 
 export default function EditEventPage() {
   const router = useRouter()
@@ -42,37 +46,6 @@ export default function EditEventPage() {
     startTime: "",
   })
 
-  function handleSubmit() {
-    const eventData = getFormValuesToSubmit(formData)
-    const test = {
-      ...eventData,
-      coverImage:
-        "https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg",
-    }
-    fetch(`${process.env.NEXT_SERVER_URL}/event`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(test),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("network response was not ok")
-        }
-        return response.json()
-      })
-      .then(() => {
-        setTimeout(() => {
-          location.reload()
-        }, 500)
-        router.push("/meus-eventos")
-      })
-      .catch((error) => {
-        console.error("There was an error making the request:", error)
-      })
-  }
-
   function formatDateToYYYYMMDD(date: Date) {
     const year = date.getFullYear()
     const month = String(date.getMonth() + 1).padStart(2, "0")
@@ -84,6 +57,7 @@ export default function EditEventPage() {
 
   return (
     <div className="max-w-[100vw] w-full overflow-x-hidden min-h-screen pb-12 bg-layout-body">
+        <Toaster />
       <div className="max-w-7xl mx-auto">
         <div className="pl-4 md:pl-0 grid grid-rows-2 w-full md:flex pt-24 items-center justify-between">
           <div className="row-start-2 mt-4 md:mt-0">
@@ -173,7 +147,7 @@ export default function EditEventPage() {
           <h3 className="text-content-title text-xl font-bold mb-5">
             Local do evento
           </h3>
-          <div className="grid grid-cols-2 gap-x-4 w-full mt-[46px] mb-4">
+          <div className="grid grid-cols-2 gap-x-4 w-full mb-4">
             <div className="col-span-1">
               <InputForm
                 {...inputData.cep}
@@ -236,14 +210,14 @@ export default function EditEventPage() {
           <div className="w-full flex justify-end">
             {formData.selectedToEdit !== null ? (
               <button
-                onClick={handleSubmit}
+                onClick={() => handleSubmit({ formData, router })}
                 className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-success-light text-content-title mt-8 ml-auto"
               >
                 Salvar alterações
               </button>
             ) : (
               <button
-                onClick={handleSubmit}
+                onClick={() => handleSubmit({ formData, router })}
                 className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto"
               >
                 Cadastrar

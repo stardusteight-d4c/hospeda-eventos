@@ -19,8 +19,8 @@ export const DesktopSidebar = () => {
     <aside className={css.wrapper}>
       <nav className={css.nav}>
         <ul className={css.unorderedList}>
-          {navItems.map((item) => (
-            <NavItem {...item} />
+          {navItems.map((item, index) => (
+            <NavItem key={index} {...item} />
           ))}
         </ul>
       </nav>

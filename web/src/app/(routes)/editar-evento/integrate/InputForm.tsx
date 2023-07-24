@@ -6,7 +6,7 @@ import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
 interface Props {
   label: string
   id: string
-  placeholder: string
+  placeholder?: string
   type?: string
   selectedToEditFieldValue?: any
   inputValues: InputValues

@@ -1,8 +1,8 @@
+import { Fragment } from "react"
 import { PageTitle } from "@/app/_components/@globals"
 import { homePageInfo } from "./data"
 import { Card, SeeMore } from "./integrate"
 import { mainStyles as css } from "./styles"
-import { Fragment } from "react"
 
 export const Main = () => {
   return (

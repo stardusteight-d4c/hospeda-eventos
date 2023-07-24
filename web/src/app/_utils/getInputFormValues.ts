@@ -64,18 +64,18 @@ export function getFormValuesToSubmit(formData: IFormData): IEvent {
   })()
   return {
     id,
-    name,
+    name: name.trim(),
     coverImage,
     privacy,
-    description,
-    cep,
-    number,
-    address,
-    complement,
-    neighborhood,
-    city,
-    state,
+    description: description.trim(),
+    cep: cep.trim(),
+    number: number.trim(),
+    address: address.trim(),
+    complement: complement.trim(),
+    neighborhood: neighborhood.trim(),
+    city: city.trim(),
+    state: state.trim(),
     startDate: new Date(startDate),
-    startTime,
+    startTime: startTime.trim(),
   }
 }
