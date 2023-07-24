@@ -1,8 +1,4 @@
-import React from "react"
-
-interface Props {}
-
-export const Paperclip = (props: Props) => {
+export const Paperclip = () => {
   return (
     <svg
       width="16"

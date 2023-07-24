@@ -2,13 +2,14 @@
 
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
 import { RichTextHeader } from "./RichTextHeader"
+import { descriptionFieldStyles as css } from "./styles"
 
 export const DescriptionField = () => {
   const { setFormData, formData } = useFormDataContext()
 
   return (
-    <div className="w-full mt-[18px] flex flex-col gap-y-2">
-      <label htmlFor="" className="text-content-base">
+    <div className={css.wrapper}>
+      <label htmlFor="description" className={css.label}>
         Descrição
       </label>
       <div>
@@ -25,7 +26,7 @@ export const DescriptionField = () => {
           }}
           placeholder="Placeholder"
           spellCheck="false"
-          className="p-3 w-full text-content-title min-h-[108px] max-h-[108px] resize-none outline-none border border-input-border rounded-b-xl"
+          className={css.textarea}
         />
       </div>
     </div>

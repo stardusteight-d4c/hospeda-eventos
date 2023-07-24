@@ -1,7 +1,8 @@
 "use client"
 
-import { useFormDataContext } from "@/app/_context/FormContextProvider"
 import { Dispatch, SetStateAction, useRef } from "react"
+import { useFormDataContext } from "@/app/_context/FormContextProvider"
+import { inputFormStyles as css } from "./styles"
 
 interface Props {
   label: string
@@ -41,8 +42,8 @@ export const InputForm = ({
   }
 
   return (
-    <div className={`${styles} w-full flex flex-col gap-y-2`}>
-      <label htmlFor={id} className="text-content-base">
+    <div className={css.wrapper(styles!)}>
+      <label htmlFor={id} className={css.label}>
         {label}
       </label>
       <input
@@ -50,7 +51,7 @@ export const InputForm = ({
         type={type}
         defaultValue={selectedToEditFieldValue}
         onChange={(e) => handleChange(e)}
-        className="p-3 border border-input-border rounded-xl"
+        className={css.input}
         placeholder={placeholder}
       />
     </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { TogglePrivacy } from "../TogglePrivacy"
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
+import { privacyFieldStyles as css } from "./styles"
 
 export const PrivacyField = () => {
   const { formData } = useFormDataContext()
@@ -14,8 +15,8 @@ export const PrivacyField = () => {
   }, [])
 
   return (
-    <div className="w-full mt-[18px] flex flex-col gap-y-2">
-      <label className="text-content-base">Privacidade do evento</label>
+    <div className={css.wrapper}>
+      <label className={css.label}>Privacidade do evento</label>
       <TogglePrivacy privacy={privacy} setPrivacy={setPrivacy} />
     </div>
   )

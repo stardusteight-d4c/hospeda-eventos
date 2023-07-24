@@ -1,8 +1,4 @@
-import React from "react"
-
-interface Props {}
-
-export const TrashSimple = (props: Props) => {
+export const TrashSimple = () => {
   return (
     <svg
       width="16"

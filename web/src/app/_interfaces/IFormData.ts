@@ -1,4 +1,5 @@
 type Form = {
+  [key: string]: any
   id: string
   eventName: string
   uploadedFile?: File | null
@@ -17,6 +18,8 @@ type Form = {
 }
 
 interface IFormData {
+  [key: string]: any
+
   selectedToEdit: Form | null
   eventName: string
   uploadedFile: File | null

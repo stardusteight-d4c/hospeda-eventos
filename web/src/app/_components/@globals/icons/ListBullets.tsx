@@ -1,8 +1,4 @@
-import React from "react"
-
-interface Props {}
-
-export const ListBullets = (props: Props) => {
+export const ListBullets = () => {
   return (
     <svg
       width="16"

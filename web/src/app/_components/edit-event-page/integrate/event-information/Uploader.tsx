@@ -43,7 +43,11 @@ export const Uploader = () => {
       <div className={css.wrapper}>
         {formData.selectedToEdit && !formData.uploadedFile ? (
           <Fragment>
-            <button onClick={onClickUpload} className={css.newCoverButton}>
+            <button
+              type="button"
+              onClick={onClickUpload}
+              className={css.newCoverButton}
+            >
               New cover image
             </button>
             <span className={css.truncateTxt}>
@@ -53,6 +57,7 @@ export const Uploader = () => {
         ) : (
           <Fragment>
             <button
+              type="button"
               onClick={onClickUpload}
               className={css.handleUploadButton(formData.uploadedFile)}
             >

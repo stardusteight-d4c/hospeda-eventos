@@ -1,25 +1,27 @@
-import React from "react"
 import { useRouter } from "next/navigation"
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
 import { handleSubmit } from "@/app/_utils/handleSubmit"
+import { handleSubmitButtonsStyles as css } from "./styles"
 
 export const HandleSubmitButtons = () => {
   const router = useRouter()
   const { formData } = useFormDataContext()
 
   return (
-    <div className="w-full flex justify-end">
+    <div className={css.wrapper}>
       {formData.selectedToEdit !== null ? (
         <button
+          type="button"
           onClick={() => handleSubmit({ formData, router })}
-          className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-success-light text-content-title mt-8 ml-auto"
+          className={css.updateButton}
         >
           Salvar alterações
         </button>
       ) : (
         <button
+          type="button"
           onClick={() => handleSubmit({ formData, router })}
-          className="w-[223px] py-4 rounded-full active:scale-95 transition-all duration-300 ease-in-out bg-interactive-primary text-white mt-8 ml-auto"
+          className={css.postButton}
         >
           Cadastrar
         </button>

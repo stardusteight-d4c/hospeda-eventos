@@ -9,12 +9,12 @@ interface Props {
 
 export const NameField = ({ inputData }: Props) => {
   const { formData } = useFormDataContext()
+
   return (
-    <div className="mt-[46px]">
-      <InputForm
-        {...inputData.eventName}
-        selectedToEditFieldValue={formData.selectedToEdit?.eventName}
-      />
-    </div>
+    <InputForm
+      {...inputData.eventName}
+      styles="mt-[46px]"
+      selectedToEditFieldValue={formData.selectedToEdit?.eventName}
+    />
   )
 }

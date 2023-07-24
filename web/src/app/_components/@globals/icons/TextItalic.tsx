@@ -1,8 +1,4 @@
-import React from "react"
-
-interface Props {}
-
-export const TextItalic = (props: Props) => {
+export const TextItalic = () => {
   return (
     <svg
       width="16"

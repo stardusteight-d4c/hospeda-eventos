@@ -1,8 +1,4 @@
-import React from "react"
-
-interface Props {}
-
-export const TextAa = (props: Props) => {
+export const TextAa = () => {
   return (
     <svg
       width="16"
