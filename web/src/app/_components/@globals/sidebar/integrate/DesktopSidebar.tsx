@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Slide } from "react-awesome-reveal"
 import { desktopStyles as css } from "./styles"
 import { navItems } from "./data"
 
@@ -16,7 +17,12 @@ interface NavItemProps {
 
 export const DesktopSidebar = () => {
   return (
-    <aside className={css.wrapper}>
+    <Slide
+      direction="down"
+      duration={800}
+      triggerOnce={true}
+      className={css.wrapper}
+    >
       <nav className={css.nav}>
         <ul className={css.unorderedList}>
           {navItems.map((item, index) => (
@@ -24,7 +30,7 @@ export const DesktopSidebar = () => {
           ))}
         </ul>
       </nav>
-    </aside>
+    </Slide>
   )
 }
 

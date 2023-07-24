@@ -13,7 +13,7 @@ export const eventSpacetimeInfoStyles = {
 }
 
 export const hostingsStyles = {
-  wrapper: `max-w-[273px] w-full text-content-base`,
+  wrapper: `hidden xl:block max-w-[273px] w-full text-content-base`,
 }
 
 export const operationsStyles = {
