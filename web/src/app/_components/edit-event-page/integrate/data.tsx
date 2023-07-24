@@ -1,11 +1,22 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from "react"
+import { Dispatch, SetStateAction } from "react"
+
+export interface InputData {
+  [key: string]: {
+    label: string
+    id: string
+    placeholder?: string
+    type?: string
+    inputValues: InputValues
+    setInputValues: Dispatch<SetStateAction<InputValues>>
+  }
+}
 
 export const makeInputData = (
   inputValues: InputValues,
   setInputValues: Dispatch<SetStateAction<InputValues>>
-) => {
+): InputData => {
   return {
     eventName: {
       label: "Nome do evento",
@@ -79,9 +90,29 @@ export const makeInputData = (
     },
     description: {
       id: "description",
+      label: "",
+      inputValues,
+      setInputValues,
     },
     privacy: {
       id: "privacy",
+      label: "",
+      inputValues,
+      setInputValues,
     },
   }
+}
+
+export const inputInitialDefaultValues = {
+  eventName: "",
+  cep: "",
+  number: "",
+  address: "",
+  complement: "",
+  description: "",
+  neighborhood: "",
+  city: "",
+  state: "",
+  startDate: new Date(),
+  startTime: "",
 }

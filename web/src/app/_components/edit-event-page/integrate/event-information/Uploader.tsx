@@ -1,10 +1,8 @@
 "use client"
 
-import { ChangeEvent } from "react"
+import { ChangeEvent, Fragment } from "react"
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
 import { uploaderStyles as css } from "./styles"
-
-interface Props {}
 
 export const Uploader = () => {
   const { formData, setFormData } = useFormDataContext()
@@ -41,31 +39,29 @@ export const Uploader = () => {
   }
 
   return (
-    <>
+    <Fragment>
       <div className={css.wrapper}>
         {formData.selectedToEdit && !formData.uploadedFile ? (
-          <>
+          <Fragment>
             <button onClick={onClickUpload} className={css.newCoverButton}>
               New cover image
             </button>
             <span className={css.truncateTxt}>
               {formData.selectedToEdit.coverImage}
             </span>
-          </>
+          </Fragment>
         ) : (
-          <>
+          <Fragment>
             <button
               onClick={onClickUpload}
               className={css.handleUploadButton(formData.uploadedFile)}
             >
-              {formData.uploadedFile
-                ? "Thumbnail enviada"
-                : "Enviar thumbnail"}
+              {formData.uploadedFile ? "Thumbnail enviada" : "Enviar thumbnail"}
             </button>
             <span className={css.truncateTxt}>
               {formData.uploadedFile && formData.uploadedFile.name}
             </span>
-          </>
+          </Fragment>
         )}
       </div>
       <input
@@ -75,6 +71,6 @@ export const Uploader = () => {
         className="hidden"
         accept="image/png, image/jpeg"
       />
-    </>
+    </Fragment>
   )
 }

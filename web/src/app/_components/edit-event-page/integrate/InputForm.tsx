@@ -1,13 +1,14 @@
 "use client"
 
 import { useFormDataContext } from "@/app/_context/FormContextProvider"
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react"
+import { Dispatch, SetStateAction, useRef } from "react"
 
 interface Props {
   label: string
   id: string
   placeholder?: string
   type?: string
+  styles?: string
   selectedToEditFieldValue?: any
   inputValues: InputValues
   setInputValues: Dispatch<SetStateAction<InputValues>>
@@ -18,28 +19,29 @@ export const InputForm = ({
   id,
   placeholder,
   type = "text",
+  styles,
   selectedToEditFieldValue,
   inputValues,
   setInputValues,
 }: Props) => {
   const { setFormData } = useFormDataContext()
-  const inputValuesRef = useRef(inputValues); 
+  const inputValuesRef = useRef(inputValues)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
+    const { id, value } = event.target
     setInputValues({
       ...inputValues,
       [id]: value,
-    });
+    })
     inputValuesRef.current = { ...inputValues, [id]: value }
     setFormData((prevFormData) => ({
       ...prevFormData,
       ...inputValuesRef.current,
-    }));
-  };
+    }))
+  }
 
   return (
-    <div className="w-full flex flex-col gap-y-2">
+    <div className={`${styles} w-full flex flex-col gap-y-2`}>
       <label htmlFor={id} className="text-content-base">
         {label}
       </label>

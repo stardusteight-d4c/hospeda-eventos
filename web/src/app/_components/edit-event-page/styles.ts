@@ -7,3 +7,7 @@ export const headerStyles = {
   icon: `w-7 h-7`,
   hospedaText: `leading-[18.75px] font-bold`,
 }
+
+export const formStyles = {
+  wrapper: `w-full bg-white shadow-black/20 shadow-md p-4 md:p-12 pb-[84px] rounded-2xl mt-6`,
+}
