@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  app:
+    container_name: application
+    build: .
+    ports:
+      - 3333:3333 # nestjs server
+      - 5555:5555 # prisma studio
+    volumes:
+      - .:/home/node/app
+    networks:
+      - hospedaeventos
+
+  mongodb:
+    container_name: mongodb
+    build: ./mongodb_rs
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: db
+      MONGO_REPLICA_HOST: localhost
+      MONGO_REPLICA_PORT: 27017
+    ports:
+      - "27017:27017"
+    networks:
+      - hospedaeventos
+
+networks:
+  hospedaeventos:
+    external: true

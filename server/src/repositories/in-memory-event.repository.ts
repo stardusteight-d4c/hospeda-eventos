@@ -4,12 +4,12 @@ import { Event } from 'src/entities/event.entity';
 export class InMemoryEventRepository implements IEventRepository {
   #events: Map<string, Event> = new Map();
 
-  async create(input: Event): Promise<Event> {
+  public async create(input: Event): Promise<Event> {
     this.#events.set(input.reflect.id, input);
     return input;
   }
 
-  async update(input: Event): Promise<Event> {
+  public async update(input: Event): Promise<Event> {
     if (!this.#events.has(input.reflect.id)) {
       throw new Error('Event not found.');
     }
@@ -17,23 +17,23 @@ export class InMemoryEventRepository implements IEventRepository {
     return input;
   }
 
-  async delete(input: { id: string }): Promise<void> {
+  public async delete(input: { id: string }): Promise<void> {
     if (!this.#events.has(input.id)) {
       throw new Error('Event not found.');
     }
     this.#events.delete(input.id);
   }
 
-  async find(input: { id: string }): Promise<Event | null> {
+  public async find(input: { id: string }): Promise<Event | null> {
     const { id } = input;
     const event = this.#events.get(id);
     return event || null;
   }
-  async getMany(): Promise<Event[]> {
+  public async getMany(): Promise<Event[]> {
     return Array.from(this.#events.values());
   }
 
-  async getByName(input: { name: string }): Promise<Event[]> {
+  public async getByName(input: { name: string }): Promise<Event[]> {
     const events = Array.from(this.#events.values());
     const keyword = input.name.toLowerCase();
     return events.filter((event) =>
@@ -41,7 +41,7 @@ export class InMemoryEventRepository implements IEventRepository {
     );
   }
 
-  async getWithPagination(input: {
+  public async getWithPagination(input: {
     pageNumber: number;
     pageSize: number;
   }): Promise<Event[]> {

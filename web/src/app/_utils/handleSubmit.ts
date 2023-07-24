@@ -7,9 +7,14 @@ import { info, success, error } from "./toasters/toasters"
 interface SubmitFunction {
   formData: IFormData
   router: AppRouterInstance
+  method: "POST" | "PUT"
 }
 
-export async function handleSubmit({ formData, router }: SubmitFunction) {
+export async function handleSubmit({
+  formData,
+  router,
+  method,
+}: SubmitFunction) {
   const eventData = getFormValuesToSubmit(formData)
   if (!validateForm(eventData)) {
     return
@@ -23,7 +28,7 @@ export async function handleSubmit({ formData, router }: SubmitFunction) {
     coverImage: imageUrl,
   }
   fetch(`${process.env.NEXT_SERVER_URL}/event`, {
-    method: "POST",
+    method: method,
     headers: {
       "Content-Type": "application/json",
     },

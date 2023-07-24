@@ -12,7 +12,7 @@ export const HandleSubmitButtons = () => {
       {formData.selectedToEdit !== null ? (
         <button
           type="button"
-          onClick={() => handleSubmit({ formData, router })}
+          onClick={() => handleSubmit({ formData, router, method: "PUT" })}
           className={css.updateButton}
         >
           Salvar alterações
@@ -20,7 +20,7 @@ export const HandleSubmitButtons = () => {
       ) : (
         <button
           type="button"
-          onClick={() => handleSubmit({ formData, router })}
+          onClick={() => handleSubmit({ formData, router, method: "POST" })}
           className={css.postButton}
         >
           Cadastrar

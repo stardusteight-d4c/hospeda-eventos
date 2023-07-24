@@ -29,7 +29,7 @@ export const EventTable = () => {
 
   return (
     <Wrapper>
-      {myEvents.length > 0 ? (
+      {myEvents && myEvents.length > 0 ? (
         <Fragment>
           {myEvents.map((event: IEvent, index: Key | null | undefined) => (
             <EventRow key={index} {...event} />

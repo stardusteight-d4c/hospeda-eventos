@@ -8,9 +8,10 @@ import {
   Put,
   Query,
 } from '@nestjs/common';
+import { PrismaClient } from '@prisma/client';
 import { IEvent } from 'src/@interfaces/event';
 import { Event } from 'src/entities/event.entity';
-import { InMemoryEventRepository } from 'src/repositories/in-memory-event.repository';
+import { PrismaEventRepository } from 'src/repositories/prisma-event.repository';
 import { EventService } from 'src/services/event.service';
 
 @Controller('event')
@@ -18,7 +19,8 @@ export class EventController {
   #eventService: EventService;
 
   constructor() {
-    const eventRepository = new InMemoryEventRepository();
+    const prisma = new PrismaClient();
+    const eventRepository = new PrismaEventRepository(prisma);
     this.#eventService = new EventService(eventRepository);
   }
 
