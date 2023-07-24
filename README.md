@@ -8,7 +8,7 @@
    Hospeda Eventos, Desafio Técnico
 </h1>
 
-Esta é uma aplicação proposta como desafio técnico para uma vaga de <strong>Desenvolvedor Full Stack</strong>, o desafio consiste em avaliar como o participante reage ao desenvolvimento de uma aplicação em um curto prazo de tempo, e apesar de ser apenas um protótipo, há bastantes funcionalidades a serem implementadas.
+Esta é uma aplicação proposta como desafio técnico para uma vaga de <strong>Desenvolvedor Full Stack</strong>, o desafio consiste em avaliar como o participante reage ao desenvolvimento de uma aplicação em um curto prazo de tempo.
 
 O desafio foi proposto dia `21/07/2023 21:07` e deveria que ser entregue até dia o `25/07/2023`. E como dito no enunciado que deixarei a seguir, documentarei aqui as principais tecnologias, implementações e decisões tomadas durante o desenvolvimento.
 
