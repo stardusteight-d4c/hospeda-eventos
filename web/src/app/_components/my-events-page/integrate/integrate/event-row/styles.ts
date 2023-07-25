@@ -28,11 +28,11 @@ export const operationsStyles = {
 }
 
 export const deleteEventPopUpStyles = {
-  overlay: `glassmorphism z-40 fixed inset-0 w-screen h-screen`,
-  wrapper: `w-screen h-screen fixed inset-0 flex items-center justify-center z-50`,
-  container: `bg-layout-spotlight p-8 rounded-2xl shadow-black/10 shadow-lg`,
+  overlay: `glassmorphism z-[100] fixed inset-0 w-screen h-screen`,
+  wrapper: `w-screen h-screen fixed inset-0 flex items-center justify-center z-[200]`,
+  container: `bg-layout-spotlight mx-2 md:mx-0 p-8 rounded-2xl shadow-black/10 shadow-lg`,
   title: `text-2xl text-interactive-destructive font-medium text-center`,
-  subtitle: `w-[350px] text-sm text-gray-500 text-center mt-4`,
+  subtitle: `md:w-[350px] text-sm text-gray-500 text-center mt-4`,
   buttonsContainer: `flex items-center gap-x-4 w-fit mx-auto mt-8`,
   delete: `whitespace-nowrap cursor-pointer mt-4 md:mt-0 active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-interactive-destructive rounded-full flex items-center justify-center py-2 px-4 w-fit`,
   cancel: `whitespace-nowrap cursor-pointer mt-4 md:mt-0 active:scale-95 transition-all duration-300 ease-in-out text-white font-bold bg-gray-500 rounded-full flex items-center justify-center py-2 px-4 w-fit`,

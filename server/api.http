@@ -3,18 +3,18 @@ POST http://localhost:3333/event
 Content-Type: application/json
 
 {
-  "name": "aaaaaaaaa",
+  "name": "Nintendo Direct",
   "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
   "cep": "68908-876",
-  "city": "Macapá",
-  "state": "AP",
+  "city": "Rio de Janeiro",
+  "state": "RJ",
   "complement": "Área Comercial",
-  "coverImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/a7/9e/3d/fachada.jpg?w=700&h=-1&s=1",
+  "coverImage": "https://cdn.jornaldebrasilia.com.br/wp-content/uploads/2023/03/23165017/ccxp.jpg",
   "description": "Evento de Tecnologia super bacana",
   "neighborhood": "Infraero",
   "number": "170",
   "privacy": "private",
-  "startDate": "2023-08-20T12:00:00.000Z",
+  "startDate": "2023-09-07T12:00:00.000Z",
   "startTime": "10:00"
 }
 ### 
@@ -28,19 +28,19 @@ PUT http://localhost:3333/event
 Content-Type: application/json
 
 {
-  "id": "7ef84b30-2f64-466d-84c2-7889e7ad1094",
-  "name": "Updated Event",
+  "id": "24c00c64-35a7-4134-8a1b-6927f7dc80bc",
+   "name": "Nintendo Direct",
   "address": "Rua Janary Nunes, 170 - Infraero, Macapá - AP",
   "cep": "68908-876",
-  "city": "Macapá",
-  "state": "AP",
+  "city": "Rio de Janeiro",
+  "state": "RJ",
   "complement": "Área Comercial",
-  "coverImage": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/a7/9e/3d/fachada.jpg?w=700&h=-1&s=1",
+  "coverImage": "https://img.olhardigital.com.br/wp-content/uploads/2020/07/20200720114613.jpg",
   "description": "Evento de Tecnologia super bacana",
   "neighborhood": "Infraero",
   "number": "170",
-  "privacy": "public",
-  "startDate": "2023-08-20T12:00:00.000Z",
+  "privacy": "private",
+  "startDate": "2023-09-07T12:00:00.000Z",
   "startTime": "10:00"
 }
 ###
