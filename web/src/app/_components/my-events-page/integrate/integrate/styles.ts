@@ -5,7 +5,7 @@ export const createEventButtonSytles = {
 export const eventHeadStyles = {
   wrapper: `flex items-center bg-layout-spotlight rounded-t-xl py-3 px-6 text-content-placeholder font-normal text-sm`,
   event: `max-w-[422px] w-full`,
-  hostings: `hidden xl:block max-w-[273px] w-full`,
+  hostings: `hidden lgg:block max-w-[273px] w-full`,
   privacy: `max-w-[273px] w-full`,
 }
 
