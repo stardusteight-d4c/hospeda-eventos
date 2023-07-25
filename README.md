@@ -1,4 +1,4 @@
-:brazil: <a href="https://github.com/stardusteight-d4c">Go to english version</a>
+:us: <a href="https://github.com/stardusteight-d4c/hospeda-eventos/tree/main">Go to english version</a>
 
 <div align="center">
   <img src="logo.png" width="222" height="78" />
@@ -83,10 +83,59 @@ Isto melhora a performance da aplicação drasticamente e reduz a quantidade de 
 
 Adotei o uso do TailwindCSS nesta aplicação como costumo fazer nas minhas demais aplicações, mas por que Tailwind? 
 
-O frontend é uma camada do projeto que não precisa de complexidade adicionais, não precisamos perder tempo resolvendo problemas de estilizações e tendo que configurar trocentos arquivos CSS e saber onde que cada classe está definida e tudo mais... o Tailwind mata esse problema pela raiz, com ele os desenvolvedores podem escrever suas estilizações no próprio elemento e deixar as mesmas diretamente acopladas ao elemento HTML sem ter que ficar caçando classes em arquivos CSS. Então o TailwindCSS é um framework CSS de classes utilitárias que potêncializa a produtividade na criação de interfaces e diminiu a sua complexidade.
+O frontend é uma camada do projeto que não precisa ter complexidade adicionais, não precisamos perder tempo resolvendo problemas de estilizações e tendo que configurar trocentos arquivos CSS e saber onde que cada classe está definida e tudo mais... o Tailwind mata esse problema pela raiz, com ele os desenvolvedores podem escrever suas estilizações no próprio elemento e deixar as mesmas diretamente acopladas ao elemento HTML sem ter que ficar caçando classes e estilizações em arquivos CSS. Então o TailwindCSS é um framework CSS de classes utilitárias que potêncializa a produtividade na criação de interfaces e diminiu a sua complexidade.
 
 - <a href="https://supabase.com/" target="_blank">Supabase Storage</a>
 
+Implementei o envio da imagem para a capa do evento, no formulário do protótipo não havia esta opção, mas como é algo importante para a exibição dos dados do evento na página "meus-eventos" decidi implementar esta feature utilizando o serviço de Storage do Supabase, poderia implementar isto apenas linkando com uma url web, ou até mesmo enviando uma imagem em base64 para o servidor, a primeira opção pode ser até viável, já que podemos atualizar o evento caso o link da URL quebre, a segunda com certeza é uma péssima opção, já que uma imagem em base64 representa o próprio arquivo da imagem em uma string de tamanho colossal, como se fosse a espécie de um binário da imagem, portanto para manter uma certa consistência e controle dos dados da aplicação resolvi converter a imagem em base64 para um arquivo e armazenar em um serviço específico para isso, e assim acabo enviando apenas o link da imagem para o servidor:
+
+```ts
+export async function handleBase64ImageAndSendToSupabaseStorage(
+  base64Image: string
+): Promise<{ file: File | null; imageUrl: string }> {
+  if (base64Image.includes("npkgygdsueoipbtxntly.supabase.co")) {
+    return { file: null, imageUrl: base64Image }
+  } else {
+    info("Convertendo imagem em base64 para arquivo...")
+    const STORAGE_URL = `https://npkgygdsueoipbtxntly.supabase.co/storage/v1/object/public/thumbnails/`
+    const uid = new ShortUniqueId({ length: 15 })
+    const fileName = `${uid()}.png`
+    const file = dataURLtoFile(base64Image, fileName)
+    const imageUrl = STORAGE_URL + fileName
+    await supabase.storage
+      .from("thumbnails")
+      .upload(fileName, file, {
+        cacheControl: "3600",
+        upsert: false,
+      })
+      .then(() => {
+        info("Arquivo armazenado com sucesso no Supabase Storage!")
+        return
+      })
+      .catch((error) => console.log(error))
+    return { file, imageUrl }
+  }
+}
+```
+
+- Notificação e Validação de Formulário
+
+No formulário há muitos dados para serem validados antes de serem enviados ao servidor, é importante sempre fazer o tratamento de dados tanto pelo lado do cliente quanto pelo lado do servidor, também é preciso sempre estar informando o usuário de processos que possam estar ocorrendo na aplicação, por exemplo o carregamento de dados, ou o envio de dados para o backend, e há várias maneiras de informar o usuário sobre estes acontecimentos, desde micro animações como loaders por exemplo, ou uma maneira mais genérica e que me economizou tempo que foi o uso da biblioteca `react-hot-toast`, assim pude exibir uma notificação na interface de qualquer lugar da aplicação, apenas chamando uma função, inclusive retonar os erros da validação do formulário por estas notificações.
+
+```ts
+if (eventData.name === "" || eventData.name.length < 3) {
+  error("O nome do evento não pode estar vazio e deve conter pelo menos 3 caracteres.")
+  return false
+}
+```
+
+<div align="center">
+  <img src="/screens/notify.png" />
+</div>
+
+> Então basicamente estas foram as principais tecnologias e implementações adotadas no projeto frontend, tentei manter a maior organização possível mesmo com o curto intervalo de tempo, hoje temos muitas bibliotecas e frameworks que potêncializam o desenvolvimento, tanto front quanto back-end e assim tentei fazer o maior proveito dessas ferramentas.
+
+### Backend
 
   
 
