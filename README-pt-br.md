@@ -49,23 +49,25 @@ o desenvolvimento.
 
 ### Frontend
 
-* TypeScript
-* React
-* Next.js
-* Server Components
-* TailwindCSS
-* Supabase
-* React Awesome Reveal
-    
+- TypeScript
+- React
+- Next.js
+- Server Components
+- TailwindCSS
+- Supabase
+- React Awesome Reveal
+- Vercel (deploy)
+
 ### Backend
 
-* TypeScript
-* NestJS
-* Express
-* Prisma
-* MongoDB
-* Unitary Tests
-* Domain-driven Design
+- TypeScript
+- NestJS
+- Express
+- Prisma
+- MongoDB / MongoDB Atlas Database (deploy)
+- Unitary Tests
+- Domain-driven Design
+- Render (deploy)
 
 ## :mailbox_with_mail: Utilitários
  

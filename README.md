@@ -60,6 +60,7 @@ The challenge was proposed on `21/07/2023 21:07` and should be delivered by `25/
 - TailwindCSS
 - Supabase
 - React Awesome Reveal
+- Vercel (deploy)
 
 ### Backend
 
@@ -67,9 +68,10 @@ The challenge was proposed on `21/07/2023 21:07` and should be delivered by `25/
 - NestJS
 - Express
 - Prisma
-- MongoDB
+- MongoDB / MongoDB Atlas Database (deploy)
 - Unitary Tests
 - Domain-driven Design
+- Render (deploy)
 
 ## :mailbox_with_mail: Utilities
 
