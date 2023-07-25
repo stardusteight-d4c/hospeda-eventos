@@ -40,7 +40,7 @@ export const deleteEventPopUpStyles = {
 
 export const operationsDropdownStyles = {
   invisibleOverlay: `z-20 fixed w-screen h-screen inset-0`,
-  wrapper: `absolute z-30 flex flex-col items-center overflow-hidden justify-center text-xs right-0 mt-1 w-[113px] bg-layout-spotlight rounded-lg shadow-black/10 shadow-lg`,
+  wrapper: `absolute z-30 flex flex-col items-center mr-[4px] lg:mr-0 overflow-hidden justify-center text-xs right-full bottom-1/2 lg:bottom-auto translate-y-1/2 lg:translate-y-0 lg:right-0 mt-1 w-[113px] bg-layout-spotlight rounded-lg shadow-black/10 shadow-lg`,
   editItem: `flex text-medium hover:bg-gray-600/5 transition-all duration-300 ease-in-out cursor-pointer items-center justify-center gap-x-2 py-3 w-full`,
   divider: `w-full h-0 border-t border-t-layout-body`,
   deleteItem: `flex text-medium hover:bg-gray-600/5 transition-all duration-300 ease-in-out text-interactive-destructive cursor-pointer py-3 w-full items-center justify-center gap-x-2`,
