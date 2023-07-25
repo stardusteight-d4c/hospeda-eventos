@@ -71,7 +71,7 @@ The challenge was proposed on `21/07/2023 21:07` and should be delivered by `25/
 - Unitary Tests
 - Domain-driven Design
 
-## :mailbox_with_mail: Utilitários
+## :mailbox_with_mail: Utilities
 
 ### Frontend
 
