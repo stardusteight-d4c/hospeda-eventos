@@ -19,3 +19,8 @@ export const searchStyles = {
   input: `block bg-interactive-secundary border border-input-border rounded-xl w-full md:w-[470px] pl-10 leading-[18.75px] p-3 placeholder:text-content-placeholder`,
   icon: `absolute top-1/2 -translate-y-1/2 left-3`,
 }
+
+export const wrapperStyles = {
+  wrapper: `overflow-x-scroll lg:overflow-visible shadow-lg shadow-black/10 border border-layout-body rounded-xl mt-6 mb-10`,
+  container: `flex flex-col min-w-[800px] w-full`,
+}
