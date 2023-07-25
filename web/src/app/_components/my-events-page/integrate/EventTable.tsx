@@ -4,6 +4,9 @@ import { HandlerRenderEventsOnClientSide } from "./HandlerRenderEventsOnClientSi
 export const EventTable = async () => {
   const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
     cache: "no-cache",
+    next: {
+      revalidate: 60, // revalidate this page every 60 seconds
+    },
   })
     .then((response) => response.json())
     .catch((err) => {
