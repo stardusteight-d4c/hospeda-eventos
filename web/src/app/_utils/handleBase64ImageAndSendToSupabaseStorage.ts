@@ -6,7 +6,7 @@ import { info } from "./toasters/toasters"
 export async function handleBase64ImageAndSendToSupabaseStorage(
   base64Image: string
 ): Promise<{ file: File | null; imageUrl: string }> {
-  if (base64Image.includes("npkgygdsueoipbtxntly.supabase.co")) {
+  if (base64Image.includes("https://")) {
     return { file: null, imageUrl: base64Image }
   } else {
     info("Convertendo imagem em base64 para arquivo...")

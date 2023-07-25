@@ -49,6 +49,28 @@ The challenge was proposed on `21/07/2023 21:07` and should be delivered by `25/
 > the development.
 ```
 
+## :rocket: Running
+
+- Environment variables
+
+On the server just copy the environment variables in `.env.example` and put in a file in the root directory called `.env`
+
+On the web it will be necessary to have the `Supabase API keys`.
+
+```bash
+git clone https://github.com/stardusteight-d4c/hospeda-eventos.git
+
+// server 
+npm install && npx prisma generate
+make create-network
+docker compose up
+docker compose exec app bash
+npm run start:dev
+
+// web
+npm install && npm run dev
+```
+
 ## :hammer_and_wrench: Tools
 
 ### Frontend

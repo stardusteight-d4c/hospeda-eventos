@@ -11,7 +11,7 @@ interface WrapperProps {
 }
 
 export const EventTable = () => {
-  const { myEvents, setMyEvents } = useMyEventsContext()
+  const { myEvents, setMyEvents, requestAgain } = useMyEventsContext()
 
   useEffect(() => {
     ;(async () => {
@@ -25,7 +25,7 @@ export const EventTable = () => {
         })
       setMyEvents(events)
     })()
-  }, [])
+  }, [requestAgain])
 
   return (
     <Wrapper>

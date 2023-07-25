@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react"
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context"
 import { getFormValuesToSubmit } from "./getInputFormValues"
 import { validateForm } from "./validateForm"
@@ -8,12 +9,16 @@ interface SubmitFunction {
   formData: IFormData
   router: AppRouterInstance
   method: "POST" | "PUT"
+  requestAgain: boolean
+  setRequestAgain: Dispatch<SetStateAction<boolean>>
 }
 
 export async function handleSubmit({
   formData,
   router,
   method,
+  requestAgain,
+  setRequestAgain,
 }: SubmitFunction) {
   const eventData = getFormValuesToSubmit(formData)
   if (!validateForm(eventData)) {
@@ -36,9 +41,7 @@ export async function handleSubmit({
   })
     .then(() => {
       success("O evento foi enviado com sucesso!")
-      setTimeout(() => {
-        location.reload()
-      }, 500)
+      setRequestAgain(!requestAgain)
       router.push("/meus-eventos")
     })
     .catch((err) => {

@@ -45,6 +45,29 @@ Lembre-se de documentar o projeto e explicar qualquer decisão importante tomada
 o desenvolvimento. 
 ```
 
+## :rocket: Rodando 
+
+- Variáveis de ambiente
+
+No servidor basta copiar as variáveis de ambiente em `.env.example` e colocar em um arquivo no diretório root chamdado `.env`
+
+Na web será necessário ter as chaves da API do Supabase.
+
+```bash
+git clone https://github.com/stardusteight-d4c/hospeda-eventos.git
+
+// server 
+npm install && npx prisma generate
+make create-network
+docker compose up
+docker compose exec app bash
+npm run start:dev
+
+// web
+npm install && npm run dev
+```
+
+
 ## :hammer_and_wrench: Ferramentas
 
 ### Frontend

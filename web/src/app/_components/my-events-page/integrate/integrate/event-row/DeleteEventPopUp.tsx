@@ -1,5 +1,8 @@
+"use client"
+
 import { Dispatch, Fragment, SetStateAction } from "react"
 import { deleteEventPopUpStyles as css } from "./styles"
+import { useMyEventsContext } from "@/app/_context/MyEventsContextProvider"
 
 interface Props {
   proceedToDelete: boolean
@@ -16,6 +19,7 @@ export const DeleteEventPopUp = ({
   setProceedToDelete,
   setShowDropdown,
 }: Props) => {
+  const { setRequestAgain, requestAgain } = useMyEventsContext()
   async function deleteEvent(id: string) {
     setShowDropdown(false)
     setProceedToDelete(false)
@@ -25,7 +29,7 @@ export const DeleteEventPopUp = ({
         "Content-Type": "application/json",
       },
     })
-      .then(() => location.reload())
+      .then(() => setRequestAgain(!requestAgain))
       .catch((err) => {
         console.error(
           "an error occurred in the request to delete the Event:",

@@ -62,7 +62,9 @@ export class PrismaEventRepository implements IEventRepository {
 
   public async getMany(): Promise<Event[]> {
     return this.#prisma.event
-      .findMany()
+      .findMany({
+        orderBy: { createdAt: 'desc' },
+      })
       .then((events) => events.map((event: any) => new Event(event)))
       .catch((err) => {
         console.error(err);
