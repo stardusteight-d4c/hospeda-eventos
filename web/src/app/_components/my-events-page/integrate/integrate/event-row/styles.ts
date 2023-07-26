@@ -9,7 +9,7 @@ export const eventSpacetimeInfoStyles = {
   wrapper: `flex items-center gap-x-6`,
   flexCenter: `flex items-center gap-x-1`,
   calendarIcon: `w-4 h-4 text-content-alt-brand`,
-  paragraph: `text-content-base text-xs`,
+  paragraph: `text-content-base text-xs flex items-center`,
 }
 
 export const hostingsStyles = {

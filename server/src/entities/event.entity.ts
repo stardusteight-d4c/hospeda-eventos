@@ -31,7 +31,7 @@ export class Event {
     this.#complement = properties.complement;
     this.#neighborhood = properties.neighborhood;
     this.#city = properties.city;
-    this.#state = properties.state;
+    this.#state = properties.state.toUpperCase();
     this.#startDate = properties.startDate;
     this.#startTime = properties.startTime;
   }
