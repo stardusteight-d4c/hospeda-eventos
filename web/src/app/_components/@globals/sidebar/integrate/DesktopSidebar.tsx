@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { usePathname } from "next/navigation"
 import { Slide } from "react-awesome-reveal"
 import { desktopStyles as css } from "./styles"
@@ -35,10 +35,14 @@ export const DesktopSidebar = () => {
 }
 
 const NavItem = ({ Icon, path }: NavItemProps) => {
+  const router = useRouter()
   const pathname = usePathname()
   return (
-    <Link href={path} className={css.handleIcon(pathname, path)}>
+    <span
+      onClick={() => router.push(path)}
+      className={css.handleIcon(pathname, path)}
+    >
       <Icon />
-    </Link>
+    </span>
   )
 }

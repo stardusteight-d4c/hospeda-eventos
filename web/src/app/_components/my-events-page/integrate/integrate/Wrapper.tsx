@@ -8,16 +8,19 @@ import { IEvent } from "@/app/_interfaces/IEvent"
 
 interface Props {
   children: ReactNode
-  events: IEvent[]
+  serverEvents: IEvent[]
 }
 
-export const Wrapper = ({ children, events }: Props) => {
+export const Wrapper = ({ children, serverEvents }: Props) => {
   const { setMyEvents, requestAgain } = useMyEventsContext()
-  
+
   useEffect(() => {
-    setMyEvents(events)
+    setMyEvents(serverEvents)
+  }, [])
+
+  useEffect(() => {
     ;(async () => {
-      const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
+      const updateEvents = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
         cache: "no-cache",
       })
         .then((response) => response.json())
@@ -25,7 +28,7 @@ export const Wrapper = ({ children, events }: Props) => {
           console.log(err)
           return null
         })
-      setMyEvents(events)
+      setMyEvents(updateEvents)
     })()
   }, [requestAgain])
 

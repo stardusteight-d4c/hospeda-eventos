@@ -18,7 +18,8 @@ export const EventSpacetimeInfo = ({ startDate, city, state }: Props) => {
       <span className={css.flexCenter}>
         <MapPin />
         <p className={css.paragraph}>
-          {city}/<span className="block uppercase">{state}</span>
+          <span className="block capitalize">{city}</span>/
+          <span className="block uppercase">{state}</span>
         </p>
       </span>
     </div>

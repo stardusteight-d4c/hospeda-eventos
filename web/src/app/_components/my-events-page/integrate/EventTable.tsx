@@ -12,7 +12,7 @@ export const EventTable = async () => {
     })
 
   return (
-    <Wrapper events={events}>
+    <Wrapper serverEvents={events}>
       <HandlerRenderEventsOnClientSide />
     </Wrapper>
   )
