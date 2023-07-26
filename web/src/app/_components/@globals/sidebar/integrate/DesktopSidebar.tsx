@@ -1,7 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation"
-import { usePathname } from "next/navigation"
+import { useRouter, usePathname } from "next/navigation"
 import { Slide } from "react-awesome-reveal"
 import { desktopStyles as css } from "./styles"
 import { navItems } from "./data"
