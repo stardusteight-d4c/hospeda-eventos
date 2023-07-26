@@ -13,9 +13,9 @@ interface Props {
 
 export const Wrapper = ({ children, events }: Props) => {
   const { setMyEvents, requestAgain } = useMyEventsContext()
-  setMyEvents(events)
-
+  
   useEffect(() => {
+    setMyEvents(events)
     ;(async () => {
       const events = await fetch(`${process.env.NEXT_SERVER_URL}/event`, {
         cache: "no-cache",
