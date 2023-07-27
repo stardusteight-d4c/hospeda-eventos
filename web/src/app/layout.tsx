@@ -24,11 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <FormContextProvider>
-        <MyEventsContextProvider>
-          <body className={roboto.className}>{children}</body>
-        </MyEventsContextProvider>
-      </FormContextProvider>
+      <body className={roboto.className}>
+        <FormContextProvider>
+          <MyEventsContextProvider>{children}</MyEventsContextProvider>
+        </FormContextProvider>
+      </body>
     </html>
   )
 }
