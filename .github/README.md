@@ -157,10 +157,6 @@ if (eventData.name === "" || eventData.name.length < 3) {
 }
 ```
 
-<div align="center">
-  <img src="/screens/notify.png" />
-</div>
-
 > So basically these were the main technologies and implementations adopted in the frontend project, I tried to keep as much organization as possible even with the short time span, today we have many libraries and frameworks that leverage development, both front and backend and so I tried to make the most of these tools.
 
 ### Backend
