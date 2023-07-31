@@ -1,5 +1,3 @@
-:brazil: <a href="https://github.com/stardusteight-d4c/hospeda-eventos/tree/main/README-pt-br.md">Go to portuguese version</a>
-
 <div align="center">
   <img src="logo.png" width="222" height="78" />
 </div>
@@ -99,7 +97,7 @@ npm install && npm run dev
 
 ### Frontend
 
--> React.js 18 & Next.js 13
+- React.js 18 & Next.js 13
 
 Having the interface prototype in hand, I decided to start the development of the application by designing the web interface, so as one of the requirements is to use React in the frontend application, I chose to start a project using a framework that works on top of React and which is recommended by the official documentation of React 18, Next.js. Next.js adds some very useful features that facilitate the development of frontend applications in React, let's see some use cases of Next and React in this application:
 
@@ -107,13 +105,13 @@ Using the Next framework together with a new feature of React 18 called Server C
 
 This improves application performance drastically and reduces the amount of JavaScript being executed in the Browser Client, so with Next.js we can even create a complete server that offers an API service by the frontend project itself. So currently the use of a frontend framework is essential for agile development and that adds greater value to the application in a simple way, with ready-made and efficient solutions.
 
--> TailwindCSS
+- TailwindCSS
 
 I adopted the use of TailwindCSS in this application as I usually do in my other applications, but why Tailwind?
 
 The frontend is a layer of the project that doesn't need to have additional complexity, we don't need to waste time solving stylization problems and having to configure hundreds of CSS files and know where each class is defined and everything... So TailwindCSS is a CSS framework of utility classes that boosts productivity in creating interfaces and reduces their complexity.
 
--> Supabase Storage
+- Supabase Storage
 
 I implemented the sending of the image for the cover of the event, in the prototype form there was not this option, but as it is something important for the display of the event data in the "my-events" page, I decided to implement this feature using the Supabase Storage service, I could implement this just by linking with a web url, or even sending a base64 image to the server, the first option may even be viable, since we can update the event in case the URL link breaks, the second is certainly a bad option, since a base64 image represents the image file itself in a string of colossal size, as if it were a kind of binary image, so to maintain a certain consistency and control of the application data I decided to convert the image in base64 to a file and store it in a specific service for that, and so I end up sending only the image link to the server:
 
@@ -146,7 +144,7 @@ export async function handleBase64ImageAndSendToSupabaseStorage(
 }
 ```
 
--> Notification and Form Validation
+- Notification and Form Validation
 
 In the form there is a lot of data to be validated before being sent to the server, it is important to always process data both on the client side and on the server side, it is also necessary to always be informing the user of processes that may be occurring in the application, for example loading data, or sending data to the backend, and there are several ways to inform the user about these events, from micro animations such as loaders for example, or a more generic way that saved me time which was the use of the `react-hot-toast` library, like this I could display a notification in the interface from anywhere in the application, just by calling a function, including returning form validation errors through these notifications.
 
@@ -367,6 +365,6 @@ As Next.js is for React, I think NestJS is for Express or Fastfy, it has several
 
 I mainly opted for MongoDB because it has a cloud service, that is, I can literally upload a database over the web, get the connection URL and pass it to the backend application. As I planned to quickly deploy the application, I thought it would be a great option since I wouldn't have to configure and upload the database by hand.
 
-![screen](/screens/desktop-my-events.png)
+![screen](./screenshots/desktop-my-events.png)
 
 <p align="center">Project made with :blue_heart: by <a href="https://github.com/stardusteight-d4c">Gabriel Sena</a></p>
